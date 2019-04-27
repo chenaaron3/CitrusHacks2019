@@ -78,7 +78,12 @@ function removeMarker(marker) {
 	.get()
 	.then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {
+			var storageRef = storage.ref();
+			var name = marker.getPosition().lat().toString() + marker.getPosition().lng().toString();
+			var childRef = storageRef.child(name);
+			childRef.delete();
 			doc.ref.delete();
+
 		})
 	})
 	
@@ -109,15 +114,6 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		infowindow.setContent(con);
 	});
 
-	// console.log("dnldurl: " + downloadUrl);
-	// console.log("dnldurl string: " + downloadUrl.toString());
-
-	// var con = '<strong>' + date + '- Level ' + severity + '</strong><br> <img src=' + downloadUrl + ' height="200" alt="" id="imagePreview">' + description;
-	// console.log("con: " + con);
-
-	// var infowindow = new google.maps.InfoWindow({
- //          content: con
- //        });
 
 	marker.addListener('click', function() {
 		//removeMarker(marker);

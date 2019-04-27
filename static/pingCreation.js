@@ -23,7 +23,7 @@ document.getElementById('uploadButton').onclick = function() {
   var storageRef = storage.ref();
 
   var latlng = new google.maps.LatLng(pos)
-  var name = posToString(latlng) + '.jpg'
+  var name = posToString(latlng)
   var description = document.getElementById('description').value;
   var plasticRef = storageRef.child(name);
 
