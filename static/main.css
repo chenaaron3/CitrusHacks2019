@@ -1,0 +1,46 @@
+body{
+	background-color: rgb(0,0,0);
+	background-image: url("reclaimearth.png");
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-position: center top; 
+  	background-size: 50%;
+  	color: rgb(0, 255, 0);
+}
+
+#login{
+	position: absolute;
+	left: 41%;
+	bottom: 5%;
+	padding: 3% 9%;
+	border-style: none;
+	background-color: rgba(0,0,0,0);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-image: url("login_button.png")
+}
+
+#map {
+   	height: 1080px;
+   	width: 100%;
+ }
+ 
+ #ping{
+ 	position: absolute;
+ 	bottom: 1%;
+	padding: 3% 6%;
+	border-style: none;
+	background-color: rgba(0,0,0,0);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-image: url("ping_button.png")
+}
+ 
+ #profileButton{
+ 	position: absolute;
+ 	top: 1%;
+ 	left: 1%;
+ 	width: 200px;
+ 	margin-left: 3%;
+ 	margin-top: 3%;
+ }
