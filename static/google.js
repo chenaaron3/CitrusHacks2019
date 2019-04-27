@@ -16,8 +16,6 @@ function attachSignin(element) {
   console.log(element.id);
   auth2.attachClickHandler(element, {},
       function(googleUser) {
-        /*document.getElementById('name').innerText = "Signed in: " +
-            googleUser.getBasicProfile().getName();*/
       }, function(error) {
         alert(JSON.stringify(error, undefined, 2));
       });
@@ -29,6 +27,7 @@ function onSignIn(googleUser) {
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  document.location.href = '/map/' + user.username
 }
 
 
