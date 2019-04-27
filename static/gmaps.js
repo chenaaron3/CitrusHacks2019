@@ -51,7 +51,7 @@ getRealTimeUpdates = function(map) {
     });
 }
 
-function addLocation(latLng, map, severitylevel, image) {
+function addLocation(latLng, severitylevel, image) {
 
 	console.log(latLng);
 
@@ -64,7 +64,8 @@ function addLocation(latLng, map, severitylevel, image) {
 			lat: latLng.lat(),
 			long: latLng.lng(),
 			severity: severitylevel,
-			imageUrl: image
+			imageUrl: image,
+			date: (new Date()).toString()
 		}).then(function() {
 			console.log("position saved")
 		}).catch(function(error) {

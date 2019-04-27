@@ -33,14 +33,14 @@
 						<label class="radio-inline"><input type="radio" name="intensity" value="5">5</label>
 					</div><br>
 					<h3>Description</h3>
-					<input class="form-control" type="text" placeholder="Description" name="description"><br>
+					<input class="form-control" type="text" placeholder="Description" name="description" id="description"><br>
 					<h3>Upload Image</h3>
 		        	<input type="file" onchange="previewFile()" id="imageUpload" name="file"><br><br>
 					<img src="" height="200" alt="" id="imagePreview">
 				</center>
 		      </div>
 		      <div class="modal-footer">
-		      	<button type="submit" class="btn btn-success mr-auto" id="uploadButton">Upload!</button>
+		      	<button type="button" class="btn btn-success mr-auto" id="uploadButton" data-dismiss="modal">Upload!</button>
 	     		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>	
 		      </div>
 		    </div>
