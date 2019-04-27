@@ -80,7 +80,12 @@ function removeMarker(marker) {
 	.get()
 	.then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {
+			var storageRef = storage.ref();
+			var name = marker.getPosition().lat().toString() + marker.getPosition().lng().toString();
+			var childRef = storageRef.child(name);
+			childRef.delete();
 			doc.ref.delete();
+
 		})
 	})
 	
@@ -111,13 +116,24 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		infowindow.setContent(con);
 	});
 
-	marker.addListener('click', function(e) {
-		infowindow.open(map, marker)
-	});
+	marker.addListener('click', function() {
 
-	marker.addListener('rightclick', function(e) {
+		if (isInfoWindowOpen(infowindow)){
+		    infowindow.close();
+		} else {
+		    infowindow.open(map, marker)
+		}
+
+	});
+	marker.addListener('rightclick', function() {
 		removeMarker(marker);
+
 	});
 
 	markersArray.push(marker);
+}
+
+function isInfoWindowOpen(infoWindow){
+    var map = infoWindow.getMap();
+    return (map !== null && typeof map !== "undefined");
 }

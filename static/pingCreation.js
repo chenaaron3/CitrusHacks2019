@@ -23,7 +23,7 @@ document.getElementById('uploadButton').onclick = function() {
   var storageRef = storage.ref();
 
   var latlng = new google.maps.LatLng(pos)
-  var name = posToString(latlng) + '.jpg'
+  var name = posToString(latlng)
   var description = document.getElementById('description').value;
   var plasticRef = storageRef.child(name);
 
@@ -32,9 +32,9 @@ document.getElementById('uploadButton').onclick = function() {
 
   var file = document.getElementById('imageUpload').files[0];
   plasticRef.put(file).then(function(snapshot) {
-    console.log('Uploaded a blob or file!');
+    console.log('Uploaded a blob or file!'); 
+    addLocation(latlng, radioValue, 'gs://citrushack2019-a7dd9.appspot.com/' + name, description);
+    getRealTimeUpdates(map);
   });
 
-  addLocation(latlng, radioValue, 'gs://citrushack2019-a7dd9.appspot.com/' + name, description);
-  getRealTimeUpdates(map);
 };
