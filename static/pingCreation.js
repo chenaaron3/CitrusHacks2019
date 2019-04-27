@@ -32,9 +32,9 @@ document.getElementById('uploadButton').onclick = function() {
 
   var file = document.getElementById('imageUpload').files[0];
   plasticRef.put(file).then(function(snapshot) {
-    console.log('Uploaded a blob or file!');
+    console.log('Uploaded a blob or file!'); 
+    addLocation(latlng, radioValue, 'gs://citrushack2019-a7dd9.appspot.com/' + name, description);
+    getRealTimeUpdates(map);
   });
 
-  addLocation(latlng, radioValue, 'gs://citrushack2019-a7dd9.appspot.com/' + name, description);
-  getRealTimeUpdates(map);
 };

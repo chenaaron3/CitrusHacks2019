@@ -118,8 +118,24 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 
 
 	marker.addListener('click', function() {
-		//removeMarker(marker);
-		infowindow.open(map, marker)
+
+		if (isInfoWindowOpen(infowindow)){
+		    infowindow.close();
+		} else {
+		    infowindow.open(map, marker)
+		}
+
 	});
+	marker.addListener('rightclick', function() {
+		removeMarker(marker);
+
+	});
+
+
 	markersArray.push(marker);
+}
+
+function isInfoWindowOpen(infoWindow){
+    var map = infoWindow.getMap();
+    return (map !== null && typeof map !== "undefined");
 }
