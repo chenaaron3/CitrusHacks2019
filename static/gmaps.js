@@ -29,6 +29,7 @@ function isNewMarker(latlng) {
 
 
 getRealTimeUpdates = function(map) {
+	console.log("updating")
 	firestore.collection("locations")
     .get()
     .then(function(querySnapshot) {
@@ -54,21 +55,25 @@ function addLocation(latLng, map) {
 	console.log(latLng);
 
 	var docRef = firestore.doc("locations/" + posToString(latLng));
+	console.log(docRef);
+	if (!docRef.exists){
+		console.log("marker doesn't exist, creating new one");
 
-	docRef.set({
-		lat: latLng.lat(),
-		long: latLng.lng(),
-	}).then(function() {
-		console.log("position saved")
-	}).catch(function(error) {
-		console.log("Got an error: ", error);
-	})
+		docRef.set({
+			lat: latLng.lat(),
+			long: latLng.lng(),
+		}).then(function() {
+			console.log("position saved")
+		}).catch(function(error) {
+			console.log("Got an error: ", error);
+		})
 
-	getRealTimeUpdates(map);
+	}
 	
 }
 
 function removeMarker(marker) {
+	console.log(marker.getPosition())
 	firestore.collection("locations")
 	.where("lat", "==", marker.getPosition().lat())
 	.where("long", "==", marker.getPosition().lng())
@@ -79,6 +84,14 @@ function removeMarker(marker) {
 		})
 	})
 	marker.setMap(null);
+	for (var i = 0; i < markersArray.length; i++) {
+		if (markersArray[i].getPosition().equals(marker.getPosition())) {
+			markersArray.splice(i,1);
+      		break;
+   		}
+	}
+	
+
 }
 
 function createMarker(latlng, map) {
@@ -87,6 +100,8 @@ function createMarker(latlng, map) {
 		icon: trashicon,
 		map: map
 	});
+
+	console.log("removing marker")
 	marker.addListener('click', function() {
 		removeMarker(marker);
 	});
