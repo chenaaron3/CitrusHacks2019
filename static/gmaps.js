@@ -10,6 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var firestore = firebase.firestore();
+var storage = firebase.storage();
 
 var markersArray = [];
 
@@ -48,17 +49,19 @@ getRealTimeUpdates = function(map) {
     });
 }
 
-function addLocation(latLng, map) {
-	console.log(latLng);
 
+function addLocation(latLng, severitylevel, image) {
+	console.log(latLng);
 	var docRef = firestore.doc("locations/" + posToString(latLng));
 	console.log(docRef);
 	if (!docRef.exists){
 		console.log("marker doesn't exist, creating new one");
-
 		docRef.set({
 			lat: latLng.lat(),
 			long: latLng.lng(),
+			severity: severitylevel,
+			imageUrl: image,
+			date: (new Date()).toString()
 		}).then(function() {
 			console.log("position saved")
 		}).catch(function(error) {

@@ -1,4 +1,4 @@
-var map, infoWindow;
+var map, infoWindow, pos;
 var trashicon = {
   url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' ,
 };
@@ -9,32 +9,32 @@ function initMap() {
     zoom: 10,
     zoomControl: true,
     mapTypeControl: false,
-    streetViewContro: false
+    streetViewControl: false
   });
   infoWindow = new google.maps.InfoWindow;
   
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
       
       map.setCenter(pos);
       map.addListener('click', function(e) {
-        addLocation(e.latLng, map);
-        getRealTimeUpdates(map);
+        //addLocation(e.latLng, 3, 'gs://citrushack2019-a7dd9.appspot.com/download.jpg');
+        //getRealTimeUpdates(map);
       });
 
-      document.getElementById('ping').onclick = function() {
+      /*document.getElementById('ping').onclick = function() {
       	console.log("clicked ping " + pos)
-        addLocation(new google.maps.LatLng(pos), map);
+        addLocation(new google.maps.LatLng(pos), map, 5, 'gs://citrushack2019-a7dd9.appspot.com/download.jpg');
         getRealTimeUpdates(map);
-      };
+      };*/
 
       getRealTimeUpdates(map);
-      
+
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });

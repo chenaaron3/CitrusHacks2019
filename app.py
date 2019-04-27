@@ -8,9 +8,6 @@ def index():
 
 @app.route('/map', methods=["GET", "POST"])
 def map():
-    if request.method == "POST":
-        for x in request.form.items():
-            print(x)
     return render_template("map.html")
 
 if __name__ == "__main__":
