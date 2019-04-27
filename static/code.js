@@ -8,6 +8,8 @@ function initMap() {
     center: {lat: -34.397, lng: 150.644},
     zoom: 10,
     zoomControl: true,
+    mapTypeControl: false,
+    streetViewContro: false
   });
   infoWindow = new google.maps.InfoWindow;
   
@@ -22,15 +24,17 @@ function initMap() {
       map.setCenter(pos);
       map.addListener('click', function(e) {
         addLocation(e.latLng, map);
+        getRealTimeUpdates(map);
       });
 
       document.getElementById('ping').onclick = function() {
       	console.log("clicked ping " + pos)
-      	console.log(new google.maps.LatLng(pos))
         addLocation(new google.maps.LatLng(pos), map);
+        getRealTimeUpdates(map);
       };
 
       getRealTimeUpdates(map);
+      
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
