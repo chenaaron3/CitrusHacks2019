@@ -36,11 +36,10 @@ getRealTimeUpdates = function(map) {
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             myData = doc.data();
-
             if (isNewMarker(new google.maps.LatLng(myData.lat, myData.long))) {
             	console.log(doc.id, " => ", myData);
             	latlng = {lat: myData.lat, lng: myData.long};
-            	createMarker(latlng, map);
+            	createMarker(latlng, myData.date, myData.severity, myData.imageUrl, myData.description);
             }
         });
     })
@@ -50,7 +49,7 @@ getRealTimeUpdates = function(map) {
 }
 
 
-function addLocation(latLng, severitylevel, image) {
+function addLocation(latLng, severitylevel, image, description) {
 	console.log(latLng);
 	var docRef = firestore.doc("locations/" + posToString(latLng));
 	console.log(docRef);
@@ -61,7 +60,8 @@ function addLocation(latLng, severitylevel, image) {
 			long: latLng.lng(),
 			severity: severitylevel,
 			imageUrl: image,
-			date: (new Date()).toString()
+			date: (new Date()).toString(),
+			description: description
 		}).then(function() {
 			console.log("position saved")
 		}).catch(function(error) {
@@ -81,6 +81,7 @@ function removeMarker(marker) {
 			doc.ref.delete();
 		})
 	})
+	
 	marker.setMap(null);
 	for (var i = 0; i < markersArray.length; i++) {
 		if (markersArray[i].getPosition().equals(marker.getPosition())) {
@@ -90,16 +91,33 @@ function removeMarker(marker) {
 	}
 }
 
-function createMarker(latlng, map) {
+function createMarker(latlng, date, severity, imageUrl, description) {
 	var marker = new google.maps.Marker({
 		position: latlng,
 		icon: trashicon,
 		map: map
 	});
+	console.log("imgurl: " + imageUrl);
+	var grReference = storage.refFromURL(imageUrl);
+	console.log("Reference: " + grReference);
 
-	var infowindow = new google.maps.InfoWindow({
-          content: latlng.lat + " " + latlng.lng
-        });
+
+	var infowindow = new google.maps.InfoWindow();
+	var downloadUrl = grReference.getDownloadURL().then(function(url){
+		var con = '<strong>' + date + '- Level ' + severity + '</strong><br> <img src=' + url + ' height="50" alt="" id="imagePreview">' + description;
+		console.log("con: " + con);
+		infowindow.setContent(con);
+	});
+
+	// console.log("dnldurl: " + downloadUrl);
+	// console.log("dnldurl string: " + downloadUrl.toString());
+
+	// var con = '<strong>' + date + '- Level ' + severity + '</strong><br> <img src=' + downloadUrl + ' height="200" alt="" id="imagePreview">' + description;
+	// console.log("con: " + con);
+
+	// var infowindow = new google.maps.InfoWindow({
+ //          content: con
+ //        });
 
 	marker.addListener('click', function() {
 		//removeMarker(marker);
