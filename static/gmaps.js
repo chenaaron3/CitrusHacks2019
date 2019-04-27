@@ -100,6 +100,8 @@ function removeMarker(marker) {
 }
 
 function createMarker(latlng, date, severity, imageUrl, description) {
+	severity = severity.toString();
+	console.log("severity" + severity);
 	console.log("icon: " + iconBase + severity + ".png");
 	var marker = new google.maps.Marker({
 		position: latlng,
@@ -109,9 +111,8 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 	var grReference = storage.refFromURL(imageUrl);
 	var infowindow = new google.maps.InfoWindow();
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
-		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br>\
-			\
-		<h3>' + description + '</h3><img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
+		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br><h3>' + description + '</h3><img src=' + url + ` height="50" alt="" id="imagePreview" align="right" onclick="openPreview(this.src)"></div>`;
+		console.log(con);
 		infowindow.setContent(con);
 	});
 
@@ -130,6 +131,13 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 	});
 
 	markersArray.push(marker);
+}
+
+function openPreview(src)
+{
+	console.log(src);
+	document.getElementById("previewModalImg").src = src;
+	$("#previewModal").modal();
 }
 
 function isInfoWindowOpen(infoWindow){
