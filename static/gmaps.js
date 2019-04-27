@@ -55,12 +55,14 @@ function addLocation(latLng, severitylevel, image, description) {
 	console.log(docRef);
 	if (!docRef.exists){
 		console.log("marker doesn't exist, creating new one");
+		var d = new Date();
+		var dateString = d.getMonth() + "/" + d.getDay() + "/" + d.getFullYear();
 		docRef.set({
 			lat: latLng.lat(),
 			long: latLng.lng(),
 			severity: severitylevel,
 			imageUrl: image,
-			date: (new Date()).toString(),
+			date: dateString,
 			description: description
 		}).then(function() {
 			console.log("position saved")
@@ -109,7 +111,7 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 
 	var infowindow = new google.maps.InfoWindow();
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
-		var con = '<strong>' + date + '- Level ' + severity + '</strong><br> <img src=' + url + ' height="50" alt="" id="imagePreview">' + description;
+		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br>' + description + '<img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
 		console.log("con: " + con);
 		infowindow.setContent(con);
 	});
