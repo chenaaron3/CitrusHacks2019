@@ -1,4 +1,5 @@
 var map, infoWindow, pos;
+var currentMarker;
 var trashicon = {
   url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' ,
 };
@@ -20,11 +21,22 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      currentMarker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        animation: google.maps.Animation.DROP
+      })
       
       map.setCenter(pos);
       map.addListener('click', function(e) {
-        //addLocation(e.latLng, 3, 'gs://citrushack2019-a7dd9.appspot.com/download.jpg');
-        //getRealTimeUpdates(map);
+        currentMarker.setMap(null);
+        currentMarker = new google.maps.Marker({
+          position: e.latLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+
+        });
+        map.panTo(e.latLng);
       });
 
       /*document.getElementById('ping').onclick = function() {
