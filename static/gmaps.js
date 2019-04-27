@@ -111,11 +111,10 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 
 	var infowindow = new google.maps.InfoWindow();
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
-		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br>' + description + '<img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
+		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br><h3>' + description + '</h3><img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
 		console.log("con: " + con);
 		infowindow.setContent(con);
 	});
-
 
 	marker.addListener('click', function() {
 
@@ -130,7 +129,6 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		removeMarker(marker);
 
 	});
-
 
 	markersArray.push(marker);
 }
