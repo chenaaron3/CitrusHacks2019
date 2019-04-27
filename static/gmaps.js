@@ -106,24 +106,18 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 
 	var infowindow = new google.maps.InfoWindow();
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
-		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br>' + description + '<img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
+		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br><h3>' + description + '</h3><img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
 		console.log("con: " + con);
 		infowindow.setContent(con);
 	});
 
-	// console.log("dnldurl: " + downloadUrl);
-	// console.log("dnldurl string: " + downloadUrl.toString());
-
-	// var con = '<strong>' + date + '- Level ' + severity + '</strong><br> <img src=' + downloadUrl + ' height="200" alt="" id="imagePreview">' + description;
-	// console.log("con: " + con);
-
-	// var infowindow = new google.maps.InfoWindow({
- //          content: con
- //        });
-
-	marker.addListener('click', function() {
-		//removeMarker(marker);
+	marker.addListener('click', function(e) {
 		infowindow.open(map, marker)
 	});
+
+	marker.addListener('rightclick', function(e) {
+		removeMarker(marker);
+	});
+
 	markersArray.push(marker);
 }
