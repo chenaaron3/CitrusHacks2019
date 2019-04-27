@@ -41,8 +41,6 @@ getRealTimeUpdates = function(map) {
             	latlng = {lat: myData.lat, lng: myData.long};
             	createMarker(latlng, map);
             }
-
-
         });
     })
     .catch(function(error) {
@@ -51,7 +49,6 @@ getRealTimeUpdates = function(map) {
 }
 
 function addLocation(latLng, map) {
-
 	console.log(latLng);
 
 	var docRef = firestore.doc("locations/" + posToString(latLng));
@@ -67,9 +64,7 @@ function addLocation(latLng, map) {
 		}).catch(function(error) {
 			console.log("Got an error: ", error);
 		})
-
-	}
-	
+	}	
 }
 
 function removeMarker(marker) {
@@ -90,8 +85,6 @@ function removeMarker(marker) {
       		break;
    		}
 	}
-	
-
 }
 
 function createMarker(latlng, map) {
@@ -101,9 +94,13 @@ function createMarker(latlng, map) {
 		map: map
 	});
 
-	console.log("removing marker")
+	var infowindow = new google.maps.InfoWindow({
+          content: latlng.lat + " " + latlng.lng
+        });
+
 	marker.addListener('click', function() {
-		removeMarker(marker);
+		//removeMarker(marker);
+		infowindow.open(map, marker)
 	});
 	markersArray.push(marker);
 }

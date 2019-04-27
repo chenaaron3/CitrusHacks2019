@@ -41,8 +41,9 @@ body{
  
  #ping{
  	position: absolute;
- 	bottom: 1%;
 	padding: 3% 6%;
+	bottom: 3%;
+	left: 44%;
 	border-style: none;
 	background-color: rgba(0,0,0,0);
 	background-size: 100%;
