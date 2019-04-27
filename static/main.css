@@ -5,10 +5,21 @@ body{
   	background-attachment: fixed;
   	background-position: center top; 
   	background-size: 50%;
+  	font-family: TeenageAngst;
+  	font-size: 25px;
   	color: rgb(0, 0, 0);
   	height: 100vh;
   	width: 100%;
+}
 
+@font-face {
+    font-family: CantikaCute;
+    src: url("CantikaCute.otf") format("opentype");
+}
+
+@font-face {
+    font-family: TeenageAngst;
+    src: url("TeenageAngst.TTF") format("opentype");
 }
 
 #login{
