@@ -56,7 +56,8 @@ function addLocation(latLng, severitylevel, image, description) {
 	if (!docRef.exists){
 		console.log("marker doesn't exist, creating new one");
 		var d = new Date();
-		var dateString = d.getMonth() + "/" + d.getDay() + "/" + d.getFullYear();
+		console.log(d);
+		var dateString = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
 		docRef.set({
 			lat: latLng.lat(),
 			long: latLng.lng(),
@@ -99,20 +100,18 @@ function removeMarker(marker) {
 }
 
 function createMarker(latlng, date, severity, imageUrl, description) {
+	console.log("icon: " + iconBase + severity + ".png");
 	var marker = new google.maps.Marker({
 		position: latlng,
-		icon: trashicon,
+		icon: iconBase + severity + ".png",
 		map: map
 	});
-	console.log("imgurl: " + imageUrl);
 	var grReference = storage.refFromURL(imageUrl);
-	console.log("Reference: " + grReference);
-
-
 	var infowindow = new google.maps.InfoWindow();
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
-		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br><h3>' + description + '</h3><img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
-		console.log("con: " + con);
+		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br>\
+			\
+		<h3>' + description + '</h3><img src=' + url + ' height="50" alt="" id="imagePreview" align="right"></div>';
 		infowindow.setContent(con);
 	});
 

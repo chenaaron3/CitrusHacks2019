@@ -1,8 +1,6 @@
 var map, infoWindow, pos;
 var currentMarker;
-var trashicon = {
-  url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' ,
-};
+var iconBase = "https://achenheroku.herokuapp.com/static/Images/ping_";
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
