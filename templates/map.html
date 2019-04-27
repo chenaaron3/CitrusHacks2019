@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ReclaimEarth|Map</title>
+	<title>ReclaimEarth | Map</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+	<link rel="shortcut icon" href="../static/clean_button.ico">
 </head>
 <body>
 	<div id="map"></div>
@@ -26,7 +27,7 @@
 			<img src="" height="200" alt="Image preview..." id="imagePreview">
 	      </div>
 	      <div class="modal-footer">
-	      	<button type="button" class="btn btn-success mr-auto">Upload!</button>
+	      	<button type="button" class="btn btn-success mr-auto" id="uploadButton" data-dismiss="modal">Upload!</button>
      		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>	
 	      </div>
 	    </div>

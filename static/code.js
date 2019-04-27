@@ -9,7 +9,7 @@ function initMap() {
     zoom: 10,
     zoomControl: true,
     mapTypeControl: false,
-    streetViewContro: false
+    streetViewControl: false
   });
   infoWindow = new google.maps.InfoWindow;
   
@@ -23,18 +23,18 @@ function initMap() {
       
       map.setCenter(pos);
       map.addListener('click', function(e) {
-        addLocation(e.latLng, map);
+        addLocation(e.latLng, map, 3, 'gs://citrushack2019-a7dd9.appspot.com/download.jpg');
         getRealTimeUpdates(map);
       });
 
       document.getElementById('ping').onclick = function() {
       	console.log("clicked ping " + pos)
-        addLocation(new google.maps.LatLng(pos), map);
+        addLocation(new google.maps.LatLng(pos), map, 5, 'gs://citrushack2019-a7dd9.appspot.com/download.jpg');
         getRealTimeUpdates(map);
       };
 
       getRealTimeUpdates(map);
-      
+
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });

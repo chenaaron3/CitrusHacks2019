@@ -10,6 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var firestore = firebase.firestore();
+var storage = firebase.storage();
 
 var markersArray = [];
 
@@ -50,7 +51,7 @@ getRealTimeUpdates = function(map) {
     });
 }
 
-function addLocation(latLng, map) {
+function addLocation(latLng, map, severitylevel, image) {
 
 	console.log(latLng);
 
@@ -62,6 +63,8 @@ function addLocation(latLng, map) {
 		docRef.set({
 			lat: latLng.lat(),
 			long: latLng.lng(),
+			severity: severitylevel,
+			imageUrl: image
 		}).then(function() {
 			console.log("position saved")
 		}).catch(function(error) {
