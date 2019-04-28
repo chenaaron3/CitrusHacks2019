@@ -5,6 +5,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+	if request:
+		print(request)
+
 	if request.method == 'POST':
 		email = request.args.get('email')
 		id_token = request.args.get('id_token')
