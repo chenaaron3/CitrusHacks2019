@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="map"></div>
-	<button type="button" class="btn btn-info" id="profileButton" data-toggle="modal" data-target="#profileModal">Profile</button>
+	<button type="button" id="profileButton" data-toggle="modal" data-target="#profileModal"></button>
 	<button type="button" id="ping" data-toggle="modal" data-target="#myModal"></button>
 	<div id="hidden">
 		<h6 id="email">{{email}}</h6>
@@ -111,8 +111,10 @@
         <div class="modal-body">
         	<center>
         		<div><img src="" id= "profilePicture"></div>
-        		<h3>Points Here</h3><br>
-        		<h3>{{name}}</h3>
+        		<h3>{{name}}</h3><br>
+        		<h3>Points Here</h3>
+        		<h3>Pings posted: </h3>
+        		<h3>Pings contributed: </h3>
         	</center>
         </div>
         <div class="modal-footer">

@@ -12,9 +12,7 @@ console.log(name);
 console.log(profPic);
 addUser();
 
-$("#myModal").on('show.bs.modal', function(){
-   alert("Hello World!");
-});
+document.getElementById("profileButton").style.backgroundImage = "url('" + profPic + "')";
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
