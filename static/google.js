@@ -27,13 +27,15 @@ function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   var em = profile.getEmail().toString();
   var token = googleUser.getAuthResponse().id_token.toString();
+  var name = profile.getName();
+  var profPic = profile.getImageUrl();
   console.log('ID: ' + token); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Name: ' + name);
+  console.log('Image URL: ' + profPic);
   console.log('Email: ' + em); // This is null if the 'email' scope is not present.
 
-  $.get('/', { email: em, id_token: token }, function(data) {
-      document.location.href = '/map?email=' + em + "&id_token=" + token;
+  $.get('/', { email: em, id_token: token, name:name, profPic:profPic }, function(data) {
+      document.location.href = '/map?email=' + em + "&name=" + name + "&profPic=" + profPic + "&id_token=" + token;
   });
 }
 
