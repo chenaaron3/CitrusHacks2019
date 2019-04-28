@@ -136,6 +136,18 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		icon: iconBase + severity + ".png",
 		map: map
 	});
+
+
+	var docRef = firestore.collection("users").doc(email);
+	docRef.get().then(function(doc) {
+	    docRef.update({
+	    	"pingsPosted": doc.data().pingsPosted + 1,
+	    	"points": doc.data().points + 1
+	    })
+	});
+
+
+
 	var grReference = storage.refFromURL(imageUrl);
 	var infowindow = new google.maps.InfoWindow();
 
@@ -203,6 +215,15 @@ function openCleanMenu(date, severity)
 {
 	console.log("opening clean menu with date: " + date + " severity: " + severity);
 	$("#cleanModal").modal();
+	document.getElementById("sendButton").addEventListener("click", function(e) {
+	var docRef = firestore.collection("users").doc(email);
+	docRef.get().then(function(doc) {
+	    docRef.update({
+	    	"pingsContributed": doc.data().pingsContributed + 1,
+	    	"points": doc.data().points + 2 * severity
+	    })
+	});
+});
 }
 
 function deleteMarker(lat, lng)
@@ -216,6 +237,9 @@ function isInfoWindowOpen(infoWindow){
     return (map !== null && typeof map !== "undefined");
 }
 
+
+
+
 $("#profileModal").on('show.bs.modal',function()
 {
 	document.getElementById("profilePicture").src = profPic;
@@ -223,7 +247,9 @@ $("#profileModal").on('show.bs.modal',function()
 	docRef.get().then(function(doc) {
 	    if (doc.exists) {
 	    	console.log(doc.data().points);
-	    	document.getElementById("points").textContent = doc.data().points;
+	    	document.getElementById("points").textContent = doc.data().points + " points";
+	    	document.getElementById("posted").textContent = doc.data().pingsPosted + " pings posted";
+	    	document.getElementById("contributed").textContent = doc.data().pingsContributed + " pings contributed";
 	    } 
 	}).catch(function(error) {
 	    console.log("Error getting document:", error);
