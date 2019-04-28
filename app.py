@@ -5,13 +5,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-	if request:
-		print("hehexd i like pie", request)
-
 	if request.method == 'POST':
 		email = request.args.get('email')
 		id_token = request.args.get('id_token')
-		return redirect(url_for('map', email=email, id_token=id_token))
+		print("hehexd i like pie", email.toString(), id_token.toString())
+		return render_template('map.html', email=email, id_token=id_token)
 	return render_template("index.html")
 
 @app.route('/map', methods=["GET", "POST"])
