@@ -2,6 +2,9 @@ var map, infoWindow, pos;
 var currentMarker;
 var iconBase = "https://achenheroku.herokuapp.com/static/Images/ping_";
 
+console.log("ADDING USER")
+addUser();
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
@@ -37,8 +40,7 @@ function initMap() {
         map.panTo(e.latLng);
       });
 
-      console.log("ADDING USER")
-      addUser();
+      
       getRealTimeUpdates(map);
 
     }, function() {
