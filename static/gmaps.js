@@ -84,7 +84,8 @@ function addLocation(latLng, severitylevel, image, description) {
 			severity: severitylevel,
 			imageUrl: image,
 			date: dateString,
-			description: description
+			description: description,
+			emailposted: email
 
 		}).then(function() {
 			console.log("position saved")
@@ -92,12 +93,6 @@ function addLocation(latLng, severitylevel, image, description) {
 			console.log("Got an error: ", error);
 		})
 
-		subRef = firestore.doc("locations/" + posToString(latLng) + "/users/" + email);
-		subRef.set({
-			email: email,
-			name: name
-
-		})
 	}	
 }
 
@@ -109,22 +104,26 @@ function removeMarker(marker) {
 	.get()
 	.then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {
-			var storageRef = storage.ref();
-			var name = marker.getPosition().lat().toString() + marker.getPosition().lng().toString();
-			var childRef = storageRef.child(name);
-			childRef.delete();
-			doc.ref.delete();
+			if (doc.data().emailposted == email) {
+				var storageRef = storage.ref();
+				var name = marker.getPosition().lat().toString() + marker.getPosition().lng().toString();
+				var childRef = storageRef.child(name);
+				childRef.delete();
+				doc.ref.delete();
+				for (var i = 0; i < markersArray.length; i++) {
+					if (markersArray[i].getPosition().equals(marker.getPosition())) {
+						markersArray[i].setMap(null);
+						markersArray.splice(i,1);
+			      		break;
+			   		}
+				}
+			}
 
-		})
-	})
+		});
+		
+	});
 	
-	for (var i = 0; i < markersArray.length; i++) {
-		if (markersArray[i].getPosition().equals(marker.getPosition())) {
-			markersArray[i].setMap(null);
-			markersArray.splice(i,1);
-      		break;
-   		}
-	}
+	
 }
 
 function createMarker(latlng, date, severity, imageUrl, description) {
