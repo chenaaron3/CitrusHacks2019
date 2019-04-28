@@ -9,13 +9,18 @@ def index():
 		email = request.args.get('email')
 		id_token = request.args.get('id_token')
 		print("hehexd i like pie", email, id_token)
-		return redirect(url_for('map', email=email, id_token=id_token))
+		response = redirect(url_for('map', email=email, id_token=id_token))
+		data = "{'email':" + email + ", 'id_token':" + id_token + "}"
+		print("html", html)
+		print("data", data)
+		return response
 	else:
 		return render_template("index.html")
 
 @app.route('/map', methods=["GET", "POST"])
 def map():
-    return render_template("map.html", email=request.args.get('email'), id_token=request.args.get('id_token'))
+	print("I AM INSIDE MAPPPPPPPPPP")
+	return render_template("map.html")#, email=request.args.get('email'), id_token=request.args.get('id_token'))
 
 if __name__ == "__main__":
     app.run(debug=True)	
