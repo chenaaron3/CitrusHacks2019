@@ -27,13 +27,15 @@ function isNewMarker(latlng) {
 	}
 	return true;
 }
-
+	
 function addUser() {
 	console.log("adding new user")
 	var docRef = firestore.doc("users/" + email);
-	if (!docRef.exists){
-		console.log("user doesn't exist, creating new one");
-		docRef.set({
+	console.log("user doesn't exist, creating new one");
+	docRef.get()
+	.then(function(doc) {
+		if (!doc.exists) {
+			docRef.set({
 			name: name,
 			email: email,
 			imageUrl: profPic,
@@ -41,12 +43,15 @@ function addUser() {
 			points: 0,
 			pingsPosted: 0,
 			pingsContributed: 0
-		}).then(function() {
-			console.log("user saved")
-		}).catch(function(error) {
-			console.log("Got an error: ", error);
-		})
-	}
+			}).then(function() {
+				console.log("user saved")
+			}).catch(function(error) {
+				console.log("Got an error: ", error);
+			});
+		}
+	})
+	
+	
 	
 }
 
@@ -73,27 +78,37 @@ getRealTimeUpdates = function(map) {
 function addLocation(latLng, severitylevel, image, description) {
 	console.log(latLng);
 	var docRef = firestore.doc("locations/" + posToString(latLng));
-	console.log(docRef);
-	if (!docRef.exists){
-		console.log("marker doesn't exist, creating new one");
-		var d = new Date();
-		var dateString = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
-		docRef.set({
-			lat: latLng.lat(),
-			long: latLng.lng(),
-			severity: severitylevel,
-			imageUrl: image,
-			date: dateString,
-			description: description,
-			emailposted: email
+	docRef.get()
+	.then( function(doc) {
+		if (!doc.exists){
+			console.log("marker doesn't exist, creating new one");
+			var d = new Date();
+			var dateString = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
+			docRef.set({
+				lat: latLng.lat(),
+				long: latLng.lng(),
+				severity: severitylevel,
+				imageUrl: image,
+				date: dateString,
+				description: description,
+				emailposted: email
 
-		}).then(function() {
-			console.log("position saved")
-		}).catch(function(error) {
-			console.log("Got an error: ", error);
-		})
+			}).then(function() {
+				var docRef = firestore.collection("users").doc(email);
+				docRef.get().then(function(doc) {
+				    docRef.update({
+				    	"pingsPosted": doc.data().pingsPosted + 1,
+				    	"points": doc.data().points + 1
+				    })
+				});
+			}).catch(function(error) {
+				console.log("Got an error: ", error);
+			});
+		}
 
-	}	
+	});
+	
+		
 }
 
 function removeMarker(marker) {
@@ -107,7 +122,7 @@ function removeMarker(marker) {
 			if (doc.data().emailposted == email) {
 				var storageRef = storage.ref();
 				var name = marker.getPosition().lat().toString() + marker.getPosition().lng().toString();
-				var childRef = storageRef.child(name);
+				var childRef = storageageRef.child(name);
 				childRef.delete();
 				doc.ref.delete();
 				for (var i = 0; i < markersArray.length; i++) {
@@ -134,15 +149,6 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		position: latlng,
 		icon: iconBase + severity + ".png",
 		map: map
-	});
-
-
-	var docRef = firestore.collection("users").doc(email);
-	docRef.get().then(function(doc) {
-	    docRef.update({
-	    	"pingsPosted": doc.data().pingsPosted + 1,
-	    	"points": doc.data().points + 1
-	    })
 	});
 
 
