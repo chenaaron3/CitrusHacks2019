@@ -29,7 +29,7 @@ function isNewMarker(latlng) {
 }
 
 function addUser() {
-	console.log(email);
+	// console.log(email);
 }
 
 getRealTimeUpdates = function(map) {

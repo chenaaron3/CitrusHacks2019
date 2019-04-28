@@ -1,8 +1,11 @@
 var map, infoWindow, pos;
 var currentMarker;
 var iconBase = "https://achenheroku.herokuapp.com/static/Images/ping_";
+var email = document.getElementById("email").textContent;
+var id = document.getElementById("id").textContent;
 
-console.log("ADDING USER")
+console.log(email);
+console.log(id);
 addUser();
 
 function initMap() {

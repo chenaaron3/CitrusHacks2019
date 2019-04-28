@@ -33,8 +33,7 @@ function onSignIn(googleUser) {
   console.log('Email: ' + em); // This is null if the 'email' scope is not present.
 
   $.get('/', { email: em, id_token: token }, function(data) {
-    console.log(data);
-    document.location.href = '/map?email=' + data.email + "&id_token=" + data.id_token;
+      document.location.href = '/map?email=' + em + "&id_token=" + token;
   });
 }
 
