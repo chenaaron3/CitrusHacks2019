@@ -11,6 +11,9 @@ function initMap() {
     streetViewControl: false
   });
   infoWindow = new google.maps.InfoWindow;
+
+
+  console.log("ADDING USER")
   addUser();
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
