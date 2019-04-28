@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="map"></div>
-	<button type="button" class="btn btn-info" id="profileButton">Profile</button>
+	<button type="button" class="btn btn-info" id="profileButton" data-toggle="modal" data-target="#profileModal">Profile</button>
 	<button type="button" id="ping" data-toggle="modal" data-target="#myModal"></button>
 	<div id="hidden">
 		<h6 id="email">{{email}}</h6>
@@ -97,6 +97,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="profileModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+		    <h1 class="col-12 modal-title text-center"><strong>User Profile</strong></h1>
+        </div>
+        <div class="modal-body">
+        	<center>
+        		<h3>User Name Here</h3><br>
+        		<h3>Points Here</h3><br>
+        	</center>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -107,6 +128,7 @@
     <script src="{{ url_for('static', filename='gmaps.js') }}"></script>
     <script src="{{url_for('static', filename='pingCreation.js')}}"></script>
     <script src = "{{ url_for('static', filename='code.js') }}"></script>
+    <script src = "{{ url_for('static', filename='profileButton.js') }}"></script>
 
     <!--adding firestore and apis used-->
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>

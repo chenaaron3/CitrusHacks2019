@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
 import time
-from builtins import id
 
 app = Flask(__name__)
 
