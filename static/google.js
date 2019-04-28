@@ -31,7 +31,7 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   $.post('/', { user: googleUser }, function(data) {
-    console.log(data.user.getBasicProfile().getName());
+    console.log(data);
   });
   //document.location.href = '/map'
 }
