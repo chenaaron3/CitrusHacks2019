@@ -6,7 +6,8 @@ app = Flask(__name__)
 def index():
 	if request.method == 'POST':
 		userp = request.data.user
-		return redirect(url_for('/map', googleUser=userp))
+		app.logger.info('testing info log')
+		return redirect(url_for('map', googleUser=userp))
 	return render_template("index.html")
 
 @app.route('/map', methods=["GET", "POST"])
