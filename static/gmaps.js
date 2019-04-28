@@ -38,7 +38,9 @@ function addUser() {
 			email: email,
 			imageUrl: profPic,
 			token: id,
-			points: 0
+			points: 0,
+			pingsPosted: 0,
+			pingsContributed: 0
 		}).then(function() {
 			console.log("user saved")
 		}).catch(function(error) {
@@ -217,4 +219,13 @@ function isInfoWindowOpen(infoWindow){
 $("#profileModal").on('show.bs.modal',function()
 {
 	document.getElementById("profilePicture").src = profPic;
+	var docRef = firestore.collection("users").doc(email);
+	docRef.get().then(function(doc) {
+	    if (doc.exists) {
+	    	console.log(doc.data().points);
+	    	document.getElementById("points").textContent = doc.data().points;
+	    } 
+	}).catch(function(error) {
+	    console.log("Error getting document:", error);
+});
 });
