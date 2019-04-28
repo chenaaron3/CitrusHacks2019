@@ -6,9 +6,10 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def index():
 	if request.method == 'POST':
+		print(request.__dict__)
 		email = request.args.get('email')
 		id_token = request.args.get('id_token')
-		print("hehexd i like pie", email.toString(), id_token.toString())
+		print("hehexd i like pie", email, id_token)
 		return render_template('map.html', email=email, id_token=id_token)
 	return render_template("index.html")
 

@@ -1,51 +1,3 @@
-2019-04-28T03:47:20.264835+00:00 heroku[router]: at=info method=GET path="/" host=reclaimearth.herokuapp.com request_id=8495a120-19d8-4996-a1c1-d588dbed4d6c fwd="169.235.64.128" dyno=web.1 connect=1ms service=15ms status=500 bytes=455 protocol=https
-2019-04-28T03:47:20.263362+00:00 app[web.1]: [2019-04-28 03:47:20,254] ERROR in app: Exception on / [GET]
-2019-04-28T03:47:20.263405+00:00 app[web.1]: Traceback (most recent call last):
-2019-04-28T03:47:20.263408+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-2019-04-28T03:47:20.263409+00:00 app[web.1]: response = self.full_dispatch_request()
-2019-04-28T03:47:20.263411+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-2019-04-28T03:47:20.263413+00:00 app[web.1]: rv = self.handle_user_exception(e)
-2019-04-28T03:47:20.263414+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-2019-04-28T03:47:20.263416+00:00 app[web.1]: reraise(exc_type, exc_value, tb)
-2019-04-28T03:47:20.263417+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-2019-04-28T03:47:20.263419+00:00 app[web.1]: raise value
-2019-04-28T03:47:20.263421+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-2019-04-28T03:47:20.263422+00:00 app[web.1]: rv = self.dispatch_request()
-2019-04-28T03:47:20.263423+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-2019-04-28T03:47:20.263425+00:00 app[web.1]: return self.view_functions[rule.endpoint](**req.view_args)
-2019-04-28T03:47:20.263427+00:00 app[web.1]: File "/app/app.py", line 9, in index
-2019-04-28T03:47:20.263428+00:00 app[web.1]: print("hehexd i like pie" + request)
-2019-04-28T03:47:20.263430+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/werkzeug/local.py", line 409, in <lambda>
-2019-04-28T03:47:20.263431+00:00 app[web.1]: __radd__ = lambda x, o: o + x._get_current_object()
-2019-04-28T03:47:20.263437+00:00 app[web.1]: TypeError: must be str, not Request
-2019-04-28T03:47:20.266095+00:00 app[web.1]: 10.111.196.37 - - [28/Apr/2019:03:47:20 +0000] "GET / HTTP/1.1" 500 290 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:47:20.541089+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=reclaimearth.herokuapp.com request_id=1656c476-6aa1-4edd-bdc5-4508b74eda87 fwd="169.235.64.128" dyno=web.1 connect=0ms service=19ms status=404 bytes=385 protocol=https
-2019-04-28T03:47:20.541950+00:00 app[web.1]: 10.111.196.37 - - [28/Apr/2019:03:47:20 +0000] "GET /favicon.ico HTTP/1.1" 404 232 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:47:27.841801+00:00 heroku[router]: at=info method=GET path="/" host=reclaimearth.herokuapp.com request_id=202345da-756d-4a0a-97a2-4f6f47d29865 fwd="169.235.64.128" dyno=web.1 connect=0ms service=3ms status=500 bytes=455 protocol=https
-2019-04-28T03:47:27.841727+00:00 app[web.1]: [2019-04-28 03:47:27,841] ERROR in app: Exception on / [GET]
-2019-04-28T03:47:27.841740+00:00 app[web.1]: Traceback (most recent call last):
-2019-04-28T03:47:27.841742+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-2019-04-28T03:47:27.841744+00:00 app[web.1]: response = self.full_dispatch_request()
-2019-04-28T03:47:27.841746+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-2019-04-28T03:47:27.841766+00:00 app[web.1]: rv = self.handle_user_exception(e)
-2019-04-28T03:47:27.841769+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-2019-04-28T03:47:27.841770+00:00 app[web.1]: reraise(exc_type, exc_value, tb)
-2019-04-28T03:47:27.841772+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-2019-04-28T03:47:27.841774+00:00 app[web.1]: raise value
-2019-04-28T03:47:27.841775+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-2019-04-28T03:47:27.841777+00:00 app[web.1]: rv = self.dispatch_request()
-2019-04-28T03:47:27.841779+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-2019-04-28T03:47:27.841780+00:00 app[web.1]: return self.view_functions[rule.endpoint](**req.view_args)
-2019-04-28T03:47:27.841782+00:00 app[web.1]: File "/app/app.py", line 9, in index
-2019-04-28T03:47:27.841783+00:00 app[web.1]: print("hehexd i like pie" + request)
-2019-04-28T03:47:27.841785+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/werkzeug/local.py", line 409, in <lambda>
-2019-04-28T03:47:27.841787+00:00 app[web.1]: __radd__ = lambda x, o: o + x._get_current_object()
-2019-04-28T03:47:27.841794+00:00 app[web.1]: TypeError: must be str, not Request
-2019-04-28T03:47:27.842784+00:00 app[web.1]: 10.111.196.37 - - [28/Apr/2019:03:47:27 +0000] "GET / HTTP/1.1" 500 290 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:47:28.665756+00:00 heroku[router]: at=info method=GET path="/" host=reclaimearth.herokuapp.com request_id=b2eea0ba-e20b-4c9a-8de1-450efb3ed0da fwd="169.235.64.128" dyno=web.1 connect=0ms service=2ms status=500 bytes=455 protocol=https
-2019-04-28T03:47:28.665942+00:00 app[web.1]: [2019-04-28 03:47:28,665] ERROR in app: Exception on / [GET]
-2019-04-28T03:47:28.665956+00:00 app[web.1]: Traceback (most recent call last):
-2019-04-28T03:47:28.665958+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
 2019-04-28T03:47:28.665960+00:00 app[web.1]: response = self.full_dispatch_request()
 2019-04-28T03:47:28.665961+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
 2019-04-28T03:47:28.665963+00:00 app[web.1]: rv = self.handle_user_exception(e)
@@ -98,5 +50,52 @@
 2019-04-28T03:48:36.331517+00:00 app[web.1]: 10.111.196.37 - - [28/Apr/2019:03:48:36 +0000] "POST / HTTP/1.1" 302 215 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 2019-04-28T03:48:36.422709+00:00 app[web.1]: 10.111.196.37 - - [28/Apr/2019:03:48:36 +0000] "GET /map HTTP/1.1" 200 4025 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 2019-04-28T03:48:36.331474+00:00 heroku[router]: at=info method=POST path="/" host=reclaimearth.herokuapp.com request_id=5b231469-f369-47fc-a370-27f79f3d1a9c fwd="169.235.64.128" dyno=web.1 connect=0ms service=4ms status=302 bytes=429 protocol=https
-Terminate batch job (Y/N)? 
-Terminate batch job (Y/N)? 
+2019-04-28T03:54:41.796040+00:00 heroku[web.1]: Restarting
+2019-04-28T03:54:41.817389+00:00 heroku[web.1]: State changed from up to starting
+2019-04-28T03:54:42.501267+00:00 app[web.1]: [2019-04-28 03:54:42 +0000] [4] [INFO] Handling signal: term
+2019-04-28T03:54:42.501279+00:00 app[web.1]: [2019-04-28 03:54:42 +0000] [11] [INFO] Worker exiting (pid: 11)
+2019-04-28T03:54:42.501410+00:00 app[web.1]: [2019-04-28 03:54:42 +0000] [10] [INFO] Worker exiting (pid: 10)
+2019-04-28T03:54:42.601853+00:00 app[web.1]: [2019-04-28 03:54:42 +0000] [4] [INFO] Shutting down: Master
+2019-04-28T03:54:42.493295+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2019-04-28T03:54:42.677133+00:00 heroku[web.1]: Process exited with status 0
+2019-04-28T03:54:45.048038+00:00 heroku[web.1]: Starting process with command `gunicorn app:app`
+2019-04-28T03:54:46.726361+00:00 app[web.1]: [2019-04-28 03:54:46 +0000] [4] [INFO] Starting gunicorn 19.9.0
+2019-04-28T03:54:46.726849+00:00 app[web.1]: [2019-04-28 03:54:46 +0000] [4] [INFO] Listening at: http://0.0.0.0:22200 (4)
+2019-04-28T03:54:46.726943+00:00 app[web.1]: [2019-04-28 03:54:46 +0000] [4] [INFO] Using worker: sync
+2019-04-28T03:54:46.730471+00:00 app[web.1]: [2019-04-28 03:54:46 +0000] [10] [INFO] Booting worker with pid: 10
+2019-04-28T03:54:46.787206+00:00 app[web.1]: [2019-04-28 03:54:46 +0000] [11] [INFO] Booting worker with pid: 11
+2019-04-28T03:54:47.230380+00:00 heroku[web.1]: State changed from starting to up
+2019-04-28T03:55:01.646245+00:00 heroku[router]: at=info method=GET path="/" host=reclaimearth.herokuapp.com request_id=2ff41ec8-0a3e-432f-a52d-140b1dc30e7d fwd="169.235.64.128" dyno=web.1 connect=1ms service=21ms status=200 bytes=1022 protocol=https
+2019-04-28T03:55:01.646363+00:00 app[web.1]: 10.63.184.59 - - [28/Apr/2019:03:55:01 +0000] "GET / HTTP/1.1" 200 861 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:01.772618+00:00 app[web.1]: 10.63.184.59 - - [28/Apr/2019:03:55:01 +0000] "GET /static/main.css HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:01.852707+00:00 app[web.1]: 10.63.184.59 - - [28/Apr/2019:03:55:01 +0000] "GET /static/google.js HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:01.852633+00:00 heroku[router]: at=info method=GET path="/static/google.js" host=reclaimearth.herokuapp.com request_id=ddbb2468-c337-4b03-9834-913c0aa5c1f5 fwd="169.235.64.128" dyno=web.1 connect=1ms service=3ms status=200 bytes=1706 protocol=https
+2019-04-28T03:55:01.772555+00:00 heroku[router]: at=info method=GET path="/static/main.css" host=reclaimearth.herokuapp.com request_id=4854e2e6-c1a7-4142-87e2-4932845d9d03 fwd="169.235.64.128" dyno=web.1 connect=1ms service=6ms status=200 bytes=1537 protocol=https
+2019-04-28T03:55:01.949431+00:00 heroku[router]: at=info method=GET path="/static/TeenageAngst.TTF" host=reclaimearth.herokuapp.com request_id=1ec19d53-bec3-4118-9102-4eb8c9b45616 fwd="169.235.64.128" dyno=web.1 connect=1ms service=5ms status=200 bytes=34229 protocol=https
+2019-04-28T03:55:01.953210+00:00 heroku[router]: at=info method=GET path="/static/Images/reclaimearth.png" host=reclaimearth.herokuapp.com request_id=299a9bbe-1a03-4ef6-8c77-4a3e07512257 fwd="169.235.64.128" dyno=web.1 connect=1ms service=18ms status=200 bytes=309673 protocol=https
+2019-04-28T03:55:01.939617+00:00 app[web.1]: 10.63.100.123 - - [28/Apr/2019:03:55:01 +0000] "GET /static/Images/reclaimearth.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:01.947744+00:00 app[web.1]: 10.63.184.59 - - [28/Apr/2019:03:55:01 +0000] "GET /static/TeenageAngst.TTF HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:02.093485+00:00 app[web.1]: 10.47.158.58 - - [28/Apr/2019:03:55:02 +0000] "GET /static/Images/login_button.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:02.094525+00:00 heroku[router]: at=info method=GET path="/static/Images/login_button.png" host=reclaimearth.herokuapp.com request_id=d80448bb-5400-409c-9f63-28ef2b197142 fwd="169.235.64.128" dyno=web.1 connect=0ms service=8ms status=200 bytes=26303 protocol=https
+2019-04-28T03:55:02.421134+00:00 heroku[router]: at=info method=GET path="/static/Images/clean_button.ico" host=reclaimearth.herokuapp.com request_id=20ee83ee-5f35-44fd-9e08-933dbd3ca250 fwd="169.235.64.128" dyno=web.1 connect=1ms service=8ms status=200 bytes=93410 protocol=https
+2019-04-28T03:55:02.417348+00:00 app[web.1]: 10.63.100.123 - - [28/Apr/2019:03:55:02 +0000] "GET /static/Images/clean_button.ico HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T03:55:09.992258+00:00 heroku[router]: at=info method=POST path="/" host=reclaimearth.herokuapp.com request_id=94e6555c-27c1-46df-aa49-1e24822cc303 fwd="169.235.64.128" dyno=web.1 connect=1ms service=4ms status=500 bytes=455 protocol=https
+2019-04-28T03:55:09.992284+00:00 app[web.1]: [2019-04-28 03:55:09,990] ERROR in app: Exception on / [POST]
+2019-04-28T03:55:09.992297+00:00 app[web.1]: Traceback (most recent call last):
+2019-04-28T03:55:09.992300+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+2019-04-28T03:55:09.992302+00:00 app[web.1]: response = self.full_dispatch_request()
+2019-04-28T03:55:09.992305+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+2019-04-28T03:55:09.992306+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2019-04-28T03:55:09.992308+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+2019-04-28T03:55:09.992310+00:00 app[web.1]: reraise(exc_type, exc_value, tb)
+2019-04-28T03:55:09.992312+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+2019-04-28T03:55:09.992314+00:00 app[web.1]: raise value
+2019-04-28T03:55:09.992316+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+2019-04-28T03:55:09.992318+00:00 app[web.1]: rv = self.dispatch_request()
+2019-04-28T03:55:09.992320+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+2019-04-28T03:55:09.992322+00:00 app[web.1]: return self.view_functions[rule.endpoint](**req.view_args)
+2019-04-28T03:55:09.992323+00:00 app[web.1]: File "/app/app.py", line 11, in index
+2019-04-28T03:55:09.992326+00:00 app[web.1]: print("hehexd i like pie", email.toString(), id_token.toString())
+2019-04-28T03:55:09.992333+00:00 app[web.1]: AttributeError: 'NoneType' object has no attribute 'toString'
+2019-04-28T03:55:09.993145+00:00 app[web.1]: 10.63.100.123 - - [28/Apr/2019:03:55:09 +0000] "POST / HTTP/1.1" 500 290 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+Terminate batch job (Y/N)? y
