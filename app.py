@@ -7,6 +7,7 @@ def index():
 	if request.method == 'POST':
 		userp = request.data.user
 		app.logger.info('testing info log')
+		time.sleep(10);
 		return redirect(url_for('map', googleUser=userp))
 	return render_template("index.html")
 
