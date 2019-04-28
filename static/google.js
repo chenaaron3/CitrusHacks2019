@@ -32,7 +32,7 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + em); // This is null if the 'email' scope is not present.
 
-  $.post('/', { email: em, id_token: token }, function(data) {
+  $.get('/', { email: em, id_token: token }, function(data) {
     console.log("PRINTING OUT POST DATA");
     console.log(data);
   }, "text");

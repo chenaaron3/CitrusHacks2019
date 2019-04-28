@@ -5,8 +5,15 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-	if request.method == 'POST':
-		print(request.__dict__)
+	if request.method == 'GET':
+		print("keys", request.__dict__.keys())
+		print("args", request.args)
+		try:
+			print("args keys", request.args.keys())
+		except:
+			pass
+		print("type of args", type(request.args))
+		print("request dict", request.__dict__)
 		email = request.args.get('email')
 		id_token = request.args.get('id_token')
 		print("hehexd i like pie", email, id_token)
