@@ -11,9 +11,9 @@ def index():
     if request.method == 'GET' and len(request.args) > 0:
         email = request.args.get('email')
         id_token = request.args.get('id_token')
-        response = redirect(url_for('map', email=email, id_token=id_token))
-        data = "{'email':" + email + ", 'id_token':" + id_token + "}"
-        print(response)
+        name = request.args.get('name')
+        profPic = request.args.get("profPic")
+        response = redirect(url_for('map', email=email, id_token=id_token, name=name, profPic=profPic))
         return response
     else:
         return render_template("index.html")
@@ -27,7 +27,8 @@ def map():
         username = request.args.get("email")
         id = request.args.get("id_token")
         print("sending: ", username, id)
-        return render_template("map.html", email=request.args.get('email'), id_token=request.args.get('id_token'))
+        return render_template("map.html", email=request.args.get('email'), id_token=request.args.get('id_token'), 
+                               name=request.args.get("name"), profPic=request.args.get("profPic"))
 
 
 if __name__ == "__main__":

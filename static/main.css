@@ -67,12 +67,13 @@ body{
  
  #hidden{
  	position:absolute;
- 	top:0%;
  	visibility:hidden;
- 	margin:0;
- 	width:0; 
- 	height:0;
- 	font-size: 1px;
+ 	margin:0px;
+ 	width:0px; 
+ 	height:0px;
+ 	font-size:5px;
+ 	top:0%;
+ 	left:0%;
  }
  
  .clean, .delete{
