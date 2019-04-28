@@ -8,7 +8,6 @@ def index():
 	if request.method == 'POST':
 		email = request.args.get('email')
 		id_token = request.args.get('id_token')
-		app.logger.info('testing info log')
 		time.sleep(10);
 		return redirect(url_for('map', email=email, id_token=id_token))
 	return render_template("index.html")
