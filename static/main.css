@@ -68,6 +68,21 @@ body{
  	background-position-x: center;
  	background-position-y: center;
  }
+
+ #shopButton{
+ 	position: absolute;
+ 	top: 20%;
+ 	left: 1%;
+ 	width: 75px;
+ 	height: 75px;
+ 	margin-left: 3%;
+ 	margin-top: 3%;
+ 	border-radius: 50%;
+ 	background-position-x: center;
+ 	background-position-y: center;
+ 	background-image: url("Images/shop.png");
+ 	background-size: contain;
+ }
  
  #hidden{
  	position:absolute;
