@@ -1,4 +1,5 @@
 var googleUser = {};
+
 var startApp = function() {
   gapi.load('auth2', function(){
     // Retrieve the singleton for the GoogleAuth library and set up the client.
@@ -16,7 +17,7 @@ function attachSignin(element) {
   console.log(element.id);
   auth2.attachClickHandler(element, {},
       function(googleUser) {
-        onSignIn();
+        onSignIn(googleUser);
       }, function(error) {
         alert(JSON.stringify(error, undefined, 2));
       });
