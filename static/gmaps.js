@@ -136,6 +136,9 @@ function removeMarker(marker) {
 			   		}
 				}
 			}
+			else {
+				alert('You are not authorized to delete this.')
+			}
 
 		});
 		
