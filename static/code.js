@@ -37,12 +37,6 @@ function initMap() {
         map.panTo(e.latLng);
       });
 
-      /*document.getElementById('ping').onclick = function() {
-      	console.log("clicked ping " + pos)
-        addLocation(new google.maps.LatLng(pos), map, 5, 'gs://citrushack2019-a7dd9.appspot.com/download.jpg');
-        getRealTimeUpdates(map);
-      };*/
-
       getRealTimeUpdates(map);
 
     }, function() {

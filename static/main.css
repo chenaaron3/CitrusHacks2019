@@ -52,7 +52,7 @@ body{
 	background-color: rgba(0,0,0,0);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	background-image: url("Images/ping_button.png")
+	background-image: url("Images/ping_button.png");
 }
  
  #profileButton{
@@ -62,4 +62,20 @@ body{
  	width: 200px;
  	margin-left: 3%;
  	margin-top: 3%;
+ }
+ 
+ .clean, .delete{
+ 	padding: 30px;
+ 	margin: 10px;
+ 	background-size: 100%;
+ 	background-color: rgba(0,0,0,0);
+ 	border-style: none;
+ }
+ 
+ .clean{
+ 	background-image:url("Images/clean_button.png");
+ }
+ 
+  .delete{
+ 	background-image:url("Images/delete_button.png");
  }
