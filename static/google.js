@@ -30,9 +30,9 @@ function onSignIn(googleUser) {
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  $.post('/map', { user: googleUser }, function(result) {
-    alert('successfully posted key1=value1&key2=value2 to foo.php');
-});
+  $.post('/map', { user: googleUser }, function(data) {
+    console.log(data.user.getBasicProfile().getName());
+  });
   //document.location.href = '/map'
 }
 
