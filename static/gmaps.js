@@ -28,6 +28,9 @@ function isNewMarker(latlng) {
 	return true;
 }
 
+function addUser() {
+	console.log(googleUser.getBasicProfile().getID();
+}
 
 getRealTimeUpdates = function(map) {
 	console.log("updating")
