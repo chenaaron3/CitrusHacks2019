@@ -9,7 +9,6 @@
 <body>
 	<div id="map"></div>
 	<button type="button" id="profileButton" data-toggle="modal" data-target="#profileModal"></button>
-	<button type="button" id="shopButton" data-toggle="modal" data-target="#shopModal"></button>
 	<button type="button" id="ping" data-toggle="modal" data-target="#myModal"></button>
 	<div id="hidden">
 		<h6 id="email">{{email}}</h6>
@@ -112,31 +111,8 @@
         <div class="modal-body">
         	<center>
         		<div><img src="" id= "profilePicture"></div>
-        		<h3>{{name}}</h3><br>
-        		<h3 id="points"></h3>
-        		<h3 id="posted">Pings posted: </h3>
-        		<h3 id="contributed">Pings contributed: </h3>
-        	</center>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- Modal -->
-  <div class="modal fade" id="shopModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-		    <h1 class="col-12 modal-title text-center"><strong>Shop</strong></h1>
-        </div>
-        <div class="modal-body">
-        	<center>
-        		<div><img src="" id= "profilePicture"></div>
-        		<h3>{{name}}</h3><br>
+        		<h3>{{name}}</h3>
+        		<img src="../static/Images/plant_pet_1.png" id = "plantPet">
         		<h3 id="points"></h3>
         		<h3 id="posted">Pings posted: </h3>
         		<h3 id="contributed">Pings contributed: </h3>

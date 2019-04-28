@@ -242,11 +242,37 @@ function isInfoWindowOpen(infoWindow){
     return (map !== null && typeof map !== "undefined");
 }
 
-
+function setPlantPic()
+{
+	firestore.collection("users").doc(email).get().then(function(doc){
+		var points = doc.data().points;
+		if (points > 500)
+		{
+			document.getElementById("plantPet").src = "../static/Images/plant_pet_6.png"
+		}
+		else if (points > 400)
+		{
+			document.getElementById("plantPet").src = "../static/Images/plant_pet_5.png"
+		}
+		else if (points > 300)
+		{
+			document.getElementById("plantPet").src = "../static/Images/plant_pet_4.png"
+		}
+		else if (points > 200)
+		{
+			document.getElementById("plantPet").src = "../static/Images/plant_pet_3.png"
+		}
+		else if (points > 100)
+		{
+			document.getElementById("plantPet").src = "../static/Images/plant_pet_2.png"
+		}
+	})
+}
 
 
 $("#profileModal").on('show.bs.modal',function()
 {
+	setPlantPic();
 	document.getElementById("profilePicture").src = profPic;
 	var docRef = firestore.collection("users").doc(email);
 	docRef.get().then(function(doc) {
