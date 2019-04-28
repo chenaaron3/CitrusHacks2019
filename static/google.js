@@ -25,11 +25,17 @@ function attachSignin(element) {
 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  var em = profile.getEmail().toString();
+  var token = googleUser.getAuthResponse().id_token.toString();
+  console.log('ID: ' + token); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  document.location.href = '/map'
+  console.log('Email: ' + em); // This is null if the 'email' scope is not present.
+
+  $.get('/', { email: em, id_token: token }, function(data) {
+    console.log(data);
+    document.location.href = '/map?email=' + data.email + "&id_token=" + data.id_token;
+  });
 }
 
 

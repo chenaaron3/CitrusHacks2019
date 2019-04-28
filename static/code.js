@@ -2,6 +2,9 @@ var map, infoWindow, pos;
 var currentMarker;
 var iconBase = "https://achenheroku.herokuapp.com/static/Images/ping_";
 
+console.log("ADDING USER")
+addUser();
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
@@ -11,7 +14,7 @@ function initMap() {
     streetViewControl: false
   });
   infoWindow = new google.maps.InfoWindow;
-  
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
