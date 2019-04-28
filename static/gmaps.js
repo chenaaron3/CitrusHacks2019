@@ -29,7 +29,7 @@ function isNewMarker(latlng) {
 }
 
 function addUser() {
-	console.log(googleUser.getBasicProfile().getID());
+	console.log(email);
 }
 
 getRealTimeUpdates = function(map) {

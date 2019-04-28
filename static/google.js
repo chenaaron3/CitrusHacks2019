@@ -33,6 +33,7 @@ function onSignIn(googleUser) {
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   $.post('/map', { email: em, id_token: token }, function(data) {
     console.log("PRINTING OUT POST DATA");
+    console.log(data);
   });
   //document.location.href = '/map'
 }
