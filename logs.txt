@@ -1,74 +1,3 @@
-2019-04-28T03:55:09.992323+00:00 app[web.1]: File "/app/app.py", line 11, in index
-2019-04-28T03:55:09.992326+00:00 app[web.1]: print("hehexd i like pie", email.toString(), id_token.toString())
-2019-04-28T03:55:09.992333+00:00 app[web.1]: AttributeError: 'NoneType' object has no attribute 'toString'
-2019-04-28T03:55:09.993145+00:00 app[web.1]: 10.63.100.123 - - [28/Apr/2019:03:55:09 +0000] "POST / HTTP/1.1" 500 290 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:58:29.200294+00:00 heroku[web.1]: Restarting
-2019-04-28T03:58:29.204053+00:00 heroku[web.1]: State changed from up to starting
-2019-04-28T03:58:30.126675+00:00 heroku[web.1]: Stopping all processes with SIGTERM
-2019-04-28T03:58:30.143298+00:00 app[web.1]: [2019-04-28 03:58:30 +0000] [11] [INFO] Worker exiting (pid: 11)
-2019-04-28T03:58:30.143852+00:00 app[web.1]: [2019-04-28 03:58:30 +0000] [10] [INFO] Worker exiting (pid: 10)
-2019-04-28T03:58:30.145780+00:00 app[web.1]: [2019-04-28 03:58:30 +0000] [4] [INFO] Handling signal: term
-2019-04-28T03:58:30.254574+00:00 app[web.1]: [2019-04-28 03:58:30 +0000] [4] [INFO] Shutting down: Master
-2019-04-28T03:58:30.359519+00:00 heroku[web.1]: Process exited with status 0
-2019-04-28T03:58:32.957178+00:00 heroku[web.1]: Starting process with command `gunicorn app:app`
-2019-04-28T03:58:34.741564+00:00 app[web.1]: [2019-04-28 03:58:34 +0000] [4] [INFO] Starting gunicorn 19.9.0
-2019-04-28T03:58:34.742110+00:00 app[web.1]: [2019-04-28 03:58:34 +0000] [4] [INFO] Listening at: http://0.0.0.0:53487 (4)
-2019-04-28T03:58:34.742207+00:00 app[web.1]: [2019-04-28 03:58:34 +0000] [4] [INFO] Using worker: sync
-2019-04-28T03:58:34.745970+00:00 app[web.1]: [2019-04-28 03:58:34 +0000] [10] [INFO] Booting worker with pid: 10
-2019-04-28T03:58:34.829192+00:00 app[web.1]: [2019-04-28 03:58:34 +0000] [11] [INFO] Booting worker with pid: 11
-2019-04-28T03:58:35.420276+00:00 heroku[web.1]: State changed from starting to up
-2019-04-28T03:59:16.967055+00:00 heroku[router]: at=info method=GET path="/" host=reclaimearth.herokuapp.com request_id=1a6beb0f-924a-4f96-bb07-b1fd6bf84b9c fwd="169.235.64.128" dyno=web.1 connect=0ms service=22ms status=200 bytes=1022 protocol=https
-2019-04-28T03:59:16.965663+00:00 app[web.1]: 10.30.124.123 - - [28/Apr/2019:03:59:16 +0000] "GET / HTTP/1.1" 200 861 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.124150+00:00 app[web.1]: 10.30.124.123 - - [28/Apr/2019:03:59:17 +0000] "GET /static/main.css HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.204280+00:00 app[web.1]: 10.30.124.123 - - [28/Apr/2019:03:59:17 +0000] "GET /static/google.js HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.126019+00:00 heroku[router]: at=info method=GET path="/static/main.css" host=reclaimearth.herokuapp.com request_id=78825c0a-6c04-46b5-bd4d-8246f92fde4e fwd="169.235.64.128" dyno=web.1 connect=1ms service=6ms status=200 bytes=1537 protocol=https
-2019-04-28T03:59:17.205987+00:00 heroku[router]: at=info method=GET path="/static/google.js" host=reclaimearth.herokuapp.com request_id=0c424cdf-0688-4b0d-aee2-dfe778ede9f3 fwd="169.235.64.128" dyno=web.1 connect=0ms service=3ms status=200 bytes=1706 protocol=https
-2019-04-28T03:59:17.331226+00:00 heroku[router]: at=info method=GET path="/static/Images/reclaimearth.png" host=reclaimearth.herokuapp.com request_id=1b0d1616-030e-43b4-b089-c6c580205047 fwd="169.235.64.128" dyno=web.1 connect=0ms service=14ms status=200 bytes=309673 protocol=https
-2019-04-28T03:59:17.318250+00:00 app[web.1]: 10.30.124.123 - - [28/Apr/2019:03:59:17 +0000] "GET /static/Images/reclaimearth.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.326637+00:00 app[web.1]: 10.165.214.104 - - [28/Apr/2019:03:59:17 +0000] "GET /static/Images/login_button.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.484717+00:00 app[web.1]: 10.165.214.104 - - [28/Apr/2019:03:59:17 +0000] "GET /static/TeenageAngst.TTF HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.326688+00:00 heroku[router]: at=info method=GET path="/static/Images/login_button.png" host=reclaimearth.herokuapp.com request_id=c97a8813-5286-403e-aee0-3deb46e7a3ae fwd="169.235.64.128" dyno=web.1 connect=0ms service=12ms status=200 bytes=26303 protocol=https
-2019-04-28T03:59:17.484541+00:00 heroku[router]: at=info method=GET path="/static/TeenageAngst.TTF" host=reclaimearth.herokuapp.com request_id=49e7cd17-83c4-4b35-8663-f3e000fce5de fwd="169.235.64.128" dyno=web.1 connect=0ms service=4ms status=200 bytes=34229 protocol=https
-2019-04-28T03:59:17.821891+00:00 app[web.1]: 10.30.124.123 - - [28/Apr/2019:03:59:17 +0000] "GET /static/Images/clean_button.ico HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T03:59:17.828309+00:00 heroku[router]: at=info method=GET path="/static/Images/clean_button.ico" host=reclaimearth.herokuapp.com request_id=31476bd4-7687-4cbc-b37a-afabe261431b fwd="169.235.64.128" dyno=web.1 connect=0ms service=8ms status=200 bytes=93410 protocol=https
-2019-04-28T03:59:25.948722+00:00 heroku[router]: at=info method=POST path="/" host=reclaimearth.herokuapp.com request_id=14668cee-d1ab-4e7f-a187-6332dceefe67 fwd="169.235.64.128" dyno=web.1 connect=0ms service=10ms status=200 bytes=4218 protocol=https
-2019-04-28T03:59:25.940295+00:00 app[web.1]: {'environ': {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f9eb057bf98>, 'wsgi.version': (1, 0), 'wsgi.multithread': False, 'wsgi.multiprocess': True, 'wsgi.run_once': False, 'wsgi.file_wrapper': <class 'gunicorn.http.wsgi.FileWrapper'>, 'SERVER_SOFTWARE': 'gunicorn/19.9.0', 'wsgi.input': <gunicorn.http.body.Body object at 0x7f9eb057b518>, 'gunicorn.socket': <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('172.18.150.62', 53487), raddr=('10.30.124.123', 11391)>, 'REQUEST_METHOD': 'POST', 'QUERY_STRING': '', 'RAW_URI': '/', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': 'reclaimearth.herokuapp.com', 'HTTP_CONNECTION': 'close', 'HTTP_ACCEPT': 'text/plain, */*; q=0.01', 'HTTP_ORIGIN': 'https://reclaimearth.herokuapp.com', 'HTTP_X_REQUESTED_WITH': 'XMLHttpRequest', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 'CONTENT_TYPE': 'application/x-www-form-urlencoded; charset=UTF-8', 'HTTP_REFERER': 'https://reclaimearth.herokuapp.com/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'en-US,en;q=0.9', 'HTTP_COOKIE': 'G_ENABLED_IDPS=google; G_AUTHUSER_H=0', 'HTTP_X_REQUEST_ID': '14668cee-d1ab-4e7f-a187-6332dceefe67', 'HTTP_X_FORWARDED_FOR': '169.235.64.128', 'HTTP_X_FORWARDED_PROTO': 'https', 'HTTP_X_FORWARDED_PORT': '443', 'HTTP_VIA': '1.1 vegur', 'HTTP_CONNECT_TIME': '0', 'HTTP_X_REQUEST_START': '1556423965937', 'HTTP_TOTAL_ROUTE_TIME': '0', 'CONTENT_LENGTH': '1283', 'wsgi.url_scheme': 'https', 'REMOTE_ADDR': '10.30.124.123', 'REMOTE_PORT': '11391', 'SERVER_NAME': '0.0.0.0', 'SERVER_PORT': '53487', 'PATH_INFO': '/', 'SCRIPT_NAME': '', 'werkzeug.request': <Request 'https://reclaimearth.herokuapp.com/' [POST]>}, 'shallow': False, 'view_args': {}, 'url_rule': <Rule '/' (POST, GET, OPTIONS, HEAD) -> index>, 'url': 'https://reclaimearth.herokuapp.com/'}
-2019-04-28T03:59:25.940520+00:00 app[web.1]: hehexd i like pie None None
-2019-04-28T03:59:25.946447+00:00 app[web.1]: 10.30.124.123 - - [28/Apr/2019:03:59:25 +0000] "POST / HTTP/1.1" 200 4056 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T04:04:57.260546+00:00 heroku[web.1]: Restarting
-2019-04-28T04:04:57.277244+00:00 heroku[web.1]: State changed from up to starting
-2019-04-28T04:04:58.177555+00:00 app[web.1]: [2019-04-28 04:04:58 +0000] [4] [INFO] Handling signal: term
-2019-04-28T04:04:58.177662+00:00 app[web.1]: [2019-04-28 04:04:58 +0000] [10] [INFO] Worker exiting (pid: 10)
-2019-04-28T04:04:58.177713+00:00 app[web.1]: [2019-04-28 04:04:58 +0000] [11] [INFO] Worker exiting (pid: 11)
-2019-04-28T04:04:58.278225+00:00 app[web.1]: [2019-04-28 04:04:58 +0000] [4] [INFO] Shutting down: Master
-2019-04-28T04:04:58.164575+00:00 heroku[web.1]: Stopping all processes with SIGTERM
-2019-04-28T04:04:58.350496+00:00 heroku[web.1]: Process exited with status 0
-2019-04-28T04:05:01.716993+00:00 heroku[web.1]: Starting process with command `gunicorn app:app`
-2019-04-28T04:05:04.838980+00:00 heroku[web.1]: State changed from starting to up
-2019-04-28T04:05:04.428176+00:00 app[web.1]: [2019-04-28 04:05:04 +0000] [4] [INFO] Starting gunicorn 19.9.0
-2019-04-28T04:05:04.433528+00:00 app[web.1]: [2019-04-28 04:05:04 +0000] [4] [INFO] Listening at: http://0.0.0.0:13295 (4)
-2019-04-28T04:05:04.433728+00:00 app[web.1]: [2019-04-28 04:05:04 +0000] [4] [INFO] Using worker: sync
-2019-04-28T04:05:04.454828+00:00 app[web.1]: [2019-04-28 04:05:04 +0000] [10] [INFO] Booting worker with pid: 10
-2019-04-28T04:05:04.511195+00:00 app[web.1]: [2019-04-28 04:05:04 +0000] [11] [INFO] Booting worker with pid: 11
-2019-04-28T04:05:56.537813+00:00 app[web.1]: keys dict_keys(['environ', 'shallow', 'view_args', 'url_rule'])
-2019-04-28T04:05:56.537894+00:00 app[web.1]: args ImmutableMultiDict([])
-2019-04-28T04:05:56.537952+00:00 app[web.1]: args keys <dict_keyiterator object at 0x7f2d39147f98>
-2019-04-28T04:05:56.538022+00:00 app[web.1]: type of args <class 'werkzeug.datastructures.ImmutableMultiDict'>
-2019-04-28T04:05:56.541546+00:00 app[web.1]: request dict {'environ': {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f2d386e1550>, 'wsgi.version': (1, 0), 'wsgi.multithread': False, 'wsgi.multiprocess': True, 'wsgi.run_once': False, 'wsgi.file_wrapper': <class 'gunicorn.http.wsgi.FileWrapper'>, 'SERVER_SOFTWARE': 'gunicorn/19.9.0', 'wsgi.input': <gunicorn.http.body.Body object at 0x7f2d386e1518>, 'gunicorn.socket': <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('172.17.27.130', 13295), raddr=('10.111.227.159', 18001)>, 'REQUEST_METHOD': 'GET', 'QUERY_STRING': '', 'RAW_URI': '/', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': 'reclaimearth.herokuapp.com', 'HTTP_CONNECTION': 'close', 'HTTP_PRAGMA': 'no-cache', 'HTTP_CACHE_CONTROL': 'no-cache', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'en-US,en;q=0.9', 'HTTP_COOKIE': 'G_ENABLED_IDPS=google; G_AUTHUSER_H=0', 'HTTP_X_REQUEST_ID': '6447f55a-e43c-4077-8a4e-9092148049b3', 'HTTP_X_FORWARDED_FOR': '169.235.64.128', 'HTTP_X_FORWARDED_PROTO': 'https', 'HTTP_X_FORWARDED_PORT': '443', 'HTTP_VIA': '1.1 vegur', 'HTTP_CONNECT_TIME': '0', 'HTTP_X_REQUEST_START': '1556424356533', 'HTTP_TOTAL_ROUTE_TIME': '0', 'wsgi.url_scheme': 'https', 'REMOTE_ADDR': '10.111.227.159', 'REMOTE_PORT': '18001', 'SERVER_NAME': '0.0.0.0', 'SERVER_PORT': '13295', 'PATH_INFO': '/', 'SCRIPT_NAME': '', 'werkzeug.request': <Request 'https://reclaimearth.herokuapp.com/' [GET]>}, 'shallow': False, 'view_args': {}, 'url_rule': <Rule '/' (GET, OPTIONS, POST, HEAD) -> index>, 'args': ImmutableMultiDict([]), 'url': 'https://reclaimearth.herokuapp.com/'}
-2019-04-28T04:05:56.541695+00:00 app[web.1]: hehexd i like pie None None
-2019-04-28T04:05:56.566659+00:00 app[web.1]: 10.111.227.159 - - [28/Apr/2019:04:05:56 +0000] "GET / HTTP/1.1" 200 4056 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T04:05:56.727026+00:00 app[web.1]: 10.111.227.159 - - [28/Apr/2019:04:05:56 +0000] "GET /static/main.css HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T04:05:56.566966+00:00 heroku[router]: at=info method=GET path="/" host=reclaimearth.herokuapp.com request_id=6447f55a-e43c-4077-8a4e-9092148049b3 fwd="169.235.64.128" dyno=web.1 connect=0ms service=32ms status=200 bytes=4218 protocol=https
-2019-04-28T04:05:56.727697+00:00 heroku[router]: at=info method=GET path="/static/main.css" host=reclaimearth.herokuapp.com request_id=68f2d369-56d7-4690-8f6b-d17d68d554c4 fwd="169.235.64.128" dyno=web.1 connect=0ms service=6ms status=200 bytes=1537 protocol=https
-2019-04-28T04:05:56.882466+00:00 heroku[router]: at=info method=GET path="/static/code.js" host=reclaimearth.herokuapp.com request_id=4991c49a-bfa8-49bc-9a6f-e442653334b1 fwd="169.235.64.128" dyno=web.1 connect=0ms service=3ms status=200 bytes=2039 protocol=https
-2019-04-28T04:05:56.881258+00:00 heroku[router]: at=info method=GET path="/static/pingCreation.js" host=reclaimearth.herokuapp.com request_id=16e66b2b-f38d-444b-ad28-45bc74c8eff3 fwd="169.235.64.128" dyno=web.1 connect=0ms service=3ms status=200 bytes=1478 protocol=https
-2019-04-28T04:05:56.986736+00:00 heroku[router]: at=info method=GET path="/static/TeenageAngst.TTF" host=reclaimearth.herokuapp.com request_id=aae070bf-396d-4984-8a14-913540e7feca fwd="169.235.64.128" dyno=web.1 connect=1ms service=5ms status=200 bytes=34229 protocol=https
-2019-04-28T04:05:56.993155+00:00 heroku[router]: at=info method=GET path="/static/Images/reclaimearth.png" host=reclaimearth.herokuapp.com request_id=7766836a-bd21-4ccc-bd3d-36fedda47ec6 fwd="169.235.64.128" dyno=web.1 connect=0ms service=22ms status=200 bytes=309673 protocol=https
-2019-04-28T04:05:56.856445+00:00 heroku[router]: at=info method=GET path="/static/gmaps.js" host=reclaimearth.herokuapp.com request_id=95376e66-da45-4fab-9960-7429a64ad477 fwd="169.235.64.128" dyno=web.1 connect=0ms service=12ms status=200 bytes=4462 protocol=https
-2019-04-28T04:05:56.856491+00:00 app[web.1]: 10.111.227.159 - - [28/Apr/2019:04:05:56 +0000] "GET /static/gmaps.js HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T04:05:56.880976+00:00 app[web.1]: 10.91.203.27 - - [28/Apr/2019:04:05:56 +0000] "GET /static/pingCreation.js HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T04:05:56.883806+00:00 app[web.1]: 10.33.252.175 - - [28/Apr/2019:04:05:56 +0000] "GET /static/code.js HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
-2019-04-28T04:05:56.978890+00:00 app[web.1]: 10.33.252.175 - - [28/Apr/2019:04:05:56 +0000] "GET /static/Images/reclaimearth.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 2019-04-28T04:05:56.984647+00:00 app[web.1]: 10.111.227.159 - - [28/Apr/2019:04:05:56 +0000] "GET /static/TeenageAngst.TTF HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 2019-04-28T04:05:56.987645+00:00 app[web.1]: 10.91.203.27 - - [28/Apr/2019:04:05:56 +0000] "GET /static/Images/ping_button.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 2019-04-28T04:05:56.990621+00:00 heroku[router]: at=info method=GET path="/static/Images/ping_button.png" host=reclaimearth.herokuapp.com request_id=ba7e3dcc-174f-4698-bd8d-808a2b6852e7 fwd="169.235.64.128" dyno=web.1 connect=2ms service=9ms status=200 bytes=28444 protocol=https
@@ -98,4 +27,75 @@
 2019-04-28T04:06:42.188053+00:00 app[web.1]: 10.111.227.159 - - [28/Apr/2019:04:06:42 +0000] "GET /static/Images/ping_button.png HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/static/main.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 2019-04-28T04:06:43.448072+00:00 heroku[router]: at=info method=GET path="/static/Images/clean_button.ico" host=reclaimearth.herokuapp.com request_id=94f2572a-4a4e-43e8-a2ca-f15bf1a0d76f fwd="169.235.64.128" dyno=web.1 connect=0ms service=5ms status=200 bytes=93410 protocol=https
 2019-04-28T04:06:43.446679+00:00 app[web.1]: 10.33.252.175 - - [28/Apr/2019:04:06:43 +0000] "GET /static/Images/clean_button.ico HTTP/1.1" 200 0 "https://reclaimearth.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+2019-04-28T04:10:44.316799+00:00 heroku[web.1]: Restarting
+2019-04-28T04:10:44.320731+00:00 heroku[web.1]: State changed from up to starting
+2019-04-28T04:10:45.558428+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2019-04-28T04:10:45.585656+00:00 app[web.1]: [2019-04-28 04:10:45 +0000] [11] [INFO] Worker exiting (pid: 11)
+2019-04-28T04:10:45.585834+00:00 app[web.1]: [2019-04-28 04:10:45 +0000] [10] [INFO] Worker exiting (pid: 10)
+2019-04-28T04:10:45.595697+00:00 app[web.1]: [2019-04-28 04:10:45 +0000] [4] [INFO] Handling signal: term
+2019-04-28T04:10:45.701035+00:00 app[web.1]: [2019-04-28 04:10:45 +0000] [4] [INFO] Shutting down: Master
+2019-04-28T04:10:45.874181+00:00 heroku[web.1]: Process exited with status 0
+2019-04-28T04:10:48.387396+00:00 heroku[web.1]: Starting process with command `gunicorn app:app`
+2019-04-28T04:10:50.723602+00:00 heroku[web.1]: State changed from starting to crashed
+2019-04-28T04:10:50.728423+00:00 heroku[web.1]: State changed from crashed to starting
+2019-04-28T04:10:50.537178+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [4] [INFO] Starting gunicorn 19.9.0
+2019-04-28T04:10:50.538065+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [4] [INFO] Listening at: http://0.0.0.0:8775 (4)
+2019-04-28T04:10:50.538186+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [4] [INFO] Using worker: sync
+2019-04-28T04:10:50.543731+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [10] [INFO] Booting worker with pid: 10
+2019-04-28T04:10:50.551465+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [10] [ERROR] Exception in worker process
+2019-04-28T04:10:50.551468+00:00 app[web.1]: Traceback (most recent call last):
+2019-04-28T04:10:50.551490+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+2019-04-28T04:10:50.551493+00:00 app[web.1]: worker.init_process()
+2019-04-28T04:10:50.551494+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+2019-04-28T04:10:50.551496+00:00 app[web.1]: self.load_wsgi()
+2019-04-28T04:10:50.551497+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+2019-04-28T04:10:50.551499+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2019-04-28T04:10:50.551505+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2019-04-28T04:10:50.551507+00:00 app[web.1]: self.callable = self.load()
+2019-04-28T04:10:50.551509+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+2019-04-28T04:10:50.551510+00:00 app[web.1]: return self.load_wsgiapp()
+2019-04-28T04:10:50.551512+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+2019-04-28T04:10:50.551513+00:00 app[web.1]: return util.import_app(self.app_uri)
+2019-04-28T04:10:50.551515+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+2019-04-28T04:10:50.551517+00:00 app[web.1]: __import__(module)
+2019-04-28T04:10:50.551518+00:00 app[web.1]: File "/app/app.py", line 8
+2019-04-28T04:10:50.551520+00:00 app[web.1]: if request.method == 'GET' && len(request.args > 0):
+2019-04-28T04:10:50.551522+00:00 app[web.1]: ^
+2019-04-28T04:10:50.551523+00:00 app[web.1]: SyntaxError: invalid syntax
+2019-04-28T04:10:50.551740+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [10] [INFO] Worker exiting (pid: 10)
+2019-04-28T04:10:50.601457+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [4] [INFO] Shutting down: Master
+2019-04-28T04:10:50.601586+00:00 app[web.1]: [2019-04-28 04:10:50 +0000] [4] [INFO] Reason: Worker failed to boot.
+2019-04-28T04:10:50.706987+00:00 heroku[web.1]: Process exited with status 3
+2019-04-28T04:10:54.616493+00:00 heroku[web.1]: Starting process with command `gunicorn app:app`
+2019-04-28T04:10:57.257018+00:00 heroku[web.1]: State changed from starting to crashed
+2019-04-28T04:10:57.235310+00:00 heroku[web.1]: Process exited with status 3
+2019-04-28T04:10:57.090403+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [4] [INFO] Starting gunicorn 19.9.0
+2019-04-28T04:10:57.091259+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [4] [INFO] Listening at: http://0.0.0.0:29635 (4)
+2019-04-28T04:10:57.091418+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [4] [INFO] Using worker: sync
+2019-04-28T04:10:57.100012+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [10] [INFO] Booting worker with pid: 10
+2019-04-28T04:10:57.106360+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [10] [ERROR] Exception in worker process
+2019-04-28T04:10:57.106364+00:00 app[web.1]: Traceback (most recent call last):
+2019-04-28T04:10:57.106366+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+2019-04-28T04:10:57.106368+00:00 app[web.1]: worker.init_process()
+2019-04-28T04:10:57.106369+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+2019-04-28T04:10:57.106371+00:00 app[web.1]: self.load_wsgi()
+2019-04-28T04:10:57.106373+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+2019-04-28T04:10:57.106374+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2019-04-28T04:10:57.106376+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2019-04-28T04:10:57.106378+00:00 app[web.1]: self.callable = self.load()
+2019-04-28T04:10:57.106379+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+2019-04-28T04:10:57.106381+00:00 app[web.1]: return self.load_wsgiapp()
+2019-04-28T04:10:57.106383+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+2019-04-28T04:10:57.106384+00:00 app[web.1]: return util.import_app(self.app_uri)
+2019-04-28T04:10:57.106386+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+2019-04-28T04:10:57.106388+00:00 app[web.1]: __import__(module)
+2019-04-28T04:10:57.106389+00:00 app[web.1]: File "/app/app.py", line 8
+2019-04-28T04:10:57.106391+00:00 app[web.1]: if request.method == 'GET' && len(request.args > 0):
+2019-04-28T04:10:57.106393+00:00 app[web.1]: ^
+2019-04-28T04:10:57.106394+00:00 app[web.1]: SyntaxError: invalid syntax
+2019-04-28T04:10:57.106500+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [10] [INFO] Worker exiting (pid: 10)
+2019-04-28T04:10:57.139995+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [4] [INFO] Shutting down: Master
+2019-04-28T04:10:57.140249+00:00 app[web.1]: [2019-04-28 04:10:57 +0000] [4] [INFO] Reason: Worker failed to boot.
+2019-04-28T04:11:16.721130+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=reclaimearth.herokuapp.com request_id=feb14576-20ac-435e-92bb-d94430915568 fwd="169.235.64.128" dyno= connect= service= status=503 bytes= protocol=https
+2019-04-28T04:11:17.419236+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=reclaimearth.herokuapp.com request_id=27bb1110-4729-4817-8d8a-be0448dfc90a fwd="169.235.64.128" dyno= connect= service= status=503 bytes= protocol=https
 Terminate batch job (Y/N)? y

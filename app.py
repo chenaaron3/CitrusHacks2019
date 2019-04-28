@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-	if request.method == 'GET' && len(request.args > 0):
+	if request.method == 'GET' and len(request.args) > 0:
 		print("keys", request.__dict__.keys())
 		print("args", request.args)
 		try:
