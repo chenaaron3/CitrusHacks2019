@@ -172,7 +172,7 @@ function openPreview(src)
 function openCleanMenu(date, severity)
 {
 	console.log("opening clean menu with date: " + date + " severity: " + severity);
-	
+
 }
 
 function deleteMarker(marker)
