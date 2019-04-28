@@ -29,7 +29,22 @@ function isNewMarker(latlng) {
 }
 
 function addUser() {
-	// console.log(email);
+	console.log("adding new user")
+	var docRef = firestore.doc("users/" + email);
+	if (!docRef.exists){
+		console.log("user doesn't exist, creating new one");
+		docRef.set({
+			name: name,
+			email: email,
+			imageUrl: profPic,
+			token: id
+		}).then(function() {
+			console.log("user saved")
+		}).catch(function(error) {
+			console.log("Got an error: ", error);
+		})
+	}
+	
 }
 
 getRealTimeUpdates = function(map) {
@@ -67,10 +82,18 @@ function addLocation(latLng, severitylevel, image, description) {
 			imageUrl: image,
 			date: dateString,
 			description: description
+
 		}).then(function() {
 			console.log("position saved")
 		}).catch(function(error) {
 			console.log("Got an error: ", error);
+		})
+
+		subRef = firestore.doc("locations/" + posToString(latLng) + "/users/" + email);
+		subRef.set({
+			email: email,
+			name: name
+
 		})
 	}	
 }
