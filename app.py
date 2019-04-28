@@ -15,7 +15,7 @@ def index():
 
 @app.route('/map', methods=["GET", "POST"])
 def map():
-    return render_template("map.html" email=request.args.get('email'), id_token=request.args.get('id_token'))
+    return render_template("map.html", email=request.args.get('email'), id_token=request.args.get('id_token'))
 
 if __name__ == "__main__":
     app.run(debug=True)	
