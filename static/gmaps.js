@@ -29,7 +29,7 @@ function isNewMarker(latlng) {
 }
 
 function addUser() {
-	console.log(googleUser.getBasicProfile().getID();
+	console.log(googleUser.getBasicProfile().getID());
 }
 
 getRealTimeUpdates = function(map) {
@@ -59,7 +59,6 @@ function addLocation(latLng, severitylevel, image, description) {
 	if (!docRef.exists){
 		console.log("marker doesn't exist, creating new one");
 		var d = new Date();
-		console.log(d);
 		var dateString = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
 		docRef.set({
 			lat: latLng.lat(),
