@@ -90,9 +90,9 @@ function removeMarker(marker) {
 		})
 	})
 	
-	marker.setMap(null);
 	for (var i = 0; i < markersArray.length; i++) {
 		if (markersArray[i].getPosition().equals(marker.getPosition())) {
+			markersArray[i].setMap(null);
 			markersArray.splice(i,1);
       		break;
    		}
@@ -110,6 +110,7 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 	});
 	var grReference = storage.refFromURL(imageUrl);
 	var infowindow = new google.maps.InfoWindow();
+
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
 		var con = `<div class="container" style="font-family:TeenageAngst">
 						<div class="col">
@@ -135,7 +136,8 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 									</div>
 									<div class="col-sm">
 										<center>
-											<button class="delete" onclick="deleteMarker(` + marker + `)"></button>
+											<button class="delete" onclick="deleteMarker(` + marker.getPosition().lat() + `,` +  marker.getPosition().lng() + `)">
+											</button>
 										</center>
 									</div>
 								</div>
@@ -154,10 +156,10 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		}
 
 	});
-	marker.addListener('rightclick', function() {
-		removeMarker(marker);
+	// marker.addListener('rightclick', function() {
+	// 	removeMarker(marker);
 
-	});
+	// });
 
 	markersArray.push(marker);
 }
@@ -172,13 +174,13 @@ function openPreview(src)
 function openCleanMenu(date, severity)
 {
 	console.log("opening clean menu with date: " + date + " severity: " + severity);
-	
+	$("#cleanModal").modal();
 }
 
-function deleteMarker(marker)
+function deleteMarker(lat, lng)
 {
-	console.log("deleting marker: " + marker);
-
+	console.log("deleting marker: " + lat + " " + lng);
+	removeMarker(new google.maps.Marker({position:{lat:lat, lng:lng}}));
 }
 
 function isInfoWindowOpen(infoWindow){

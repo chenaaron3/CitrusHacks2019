@@ -17,7 +17,7 @@
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      <div class="modal-header">
-	      	<h1 class="col-12 modal-title text-center"><strong>Add a Ping!</strong></h4>
+	      	<h1 class="col-12 modal-title text-center"><strong>Add a Ping!</strong></h1>
 	      </div>
 	      <div class="modal-body">
 	      	<center>
@@ -32,7 +32,7 @@
 				<h3>Description</h3>
 				<input class="form-control" type="text" placeholder="Description" name="description" id="description"><br>
 				<h3>Upload Image</h3>
-	        	<input type="file" onchange="previewFile()" id="imageUpload" name="file"><br><br>
+	        	<input type="file" onchange="previewFile('imagePreview', 'imageUpload')" id="imageUpload" name="file"><br><br>
 				<img src="" height="200" alt="" id="imagePreview">
 			</center>
 	      </div>
@@ -50,7 +50,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-		    <h1 class="col-12 modal-title text-center"><strong>Site View!</strong></h4>
+		    <h1 class="col-12 modal-title text-center"><strong>Site View!</strong></h1>
         </div>
         <div class="modal-body">
         	<center>
@@ -59,6 +59,36 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  	<!-- Modal -->
+  <div class="modal fade" id="cleanModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+		    <h1 class="col-12 modal-title text-center"><strong>Thank You for Contributing!</strong></h1>
+        </div>
+        <div class="modal-body">
+        	<center>
+        		<h3>Did You Finish?</h3>
+        		<div>
+			      	<label class="radio-inline"><input type="radio" name="yesorno" value="Yes" checked>Yes</label>
+					<label class="radio-inline"><input type="radio" name="yesorno" value="No">No</label>
+        		</div><br>
+        		<h3>Comments</h3>
+        		<div><input class="form-control" type="text" placeholder="Comments" name="comments" id="comments"><br></div>
+        		<h3>Upload Image</h3>
+        		<input type="file" onchange="previewFile('imagePreviewSend', 'imageSend')" id="imageSend" name="file"><br><br>
+				<img src="" height="200" alt="" id="imagePreviewSend">
+        	</center>
+        </div>
+        <div class="modal-footer">
+	        <button type="button" class="btn btn-success mr-auto" id="sendButton" data-dismiss="modal">Send!</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
