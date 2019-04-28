@@ -101,6 +101,7 @@ function addLocation(latLng, severitylevel, image, description) {
 				    	"points": doc.data().points + 1
 				    })
 				});
+				getRealTimeUpdates();
 			}).catch(function(error) {
 				console.log("Got an error: ", error);
 			});
@@ -119,10 +120,12 @@ function removeMarker(marker) {
 	.get()
 	.then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {
+			console.log(doc.data().emailposted);
+			console.log(email);
 			if (doc.data().emailposted == email) {
 				var storageRef = storage.ref();
 				var name = marker.getPosition().lat().toString() + marker.getPosition().lng().toString();
-				var childRef = storageageRef.child(name);
+				var childRef = storageRef.child(name);
 				childRef.delete();
 				doc.ref.delete();
 				for (var i = 0; i < markersArray.length; i++) {
@@ -246,25 +249,26 @@ function setPlantPic()
 {
 	firestore.collection("users").doc(email).get().then(function(doc){
 		var points = doc.data().points;
+		element = document.getElementById("plantPet");
 		if (points > 500)
 		{
-			document.getElementById("plantPet").src = "../static/Images/plant_pet_6.png"
+			element.src = "../static/Images/plant_pet_6.png"
 		}
 		else if (points > 400)
 		{
-			document.getElementById("plantPet").src = "../static/Images/plant_pet_5.png"
+			element.src = "../static/Images/plant_pet_5.png"
 		}
 		else if (points > 300)
 		{
-			document.getElementById("plantPet").src = "../static/Images/plant_pet_4.png"
+			element.src = "../static/Images/plant_pet_4.png"
 		}
 		else if (points > 200)
 		{
-			document.getElementById("plantPet").src = "../static/Images/plant_pet_3.png"
+			element.src = "../static/Images/plant_pet_3.png"
 		}
 		else if (points > 100)
 		{
-			document.getElementById("plantPet").src = "../static/Images/plant_pet_2.png"
+			element.src = "../static/Images/plant_pet_2.png"
 		}
 	})
 }
