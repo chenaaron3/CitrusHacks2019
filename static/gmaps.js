@@ -37,7 +37,8 @@ function addUser() {
 			name: name,
 			email: email,
 			imageUrl: profPic,
-			token: id
+			token: id,
+			points: 0
 		}).then(function() {
 			console.log("user saved")
 		}).catch(function(error) {
@@ -213,7 +214,7 @@ function isInfoWindowOpen(infoWindow){
     return (map !== null && typeof map !== "undefined");
 }
 
-$("#profileModal").on('show.ns.modal',function()
+$("#profileModal").on('show.bs.modal',function()
 {
 	document.getElementById("profilePicture").src = profPic;
 });
