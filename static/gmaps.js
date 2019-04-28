@@ -189,3 +189,8 @@ function isInfoWindowOpen(infoWindow){
     var map = infoWindow.getMap();
     return (map !== null && typeof map !== "undefined");
 }
+
+$("#profileModal").on('show.ns.modal',function()
+{
+	document.getElementById("profilePicture").src = profPic;
+});
