@@ -29,7 +29,21 @@ function isNewMarker(latlng) {
 }
 
 function addUser() {
-	// console.log(email);
+	var docRef = firestore.doc("users/" + email);
+	if (!docRef.exists){
+		console.log("user doesn't exist, creating new one");
+		docRef.set({
+			name: name,
+			email: email,
+			imageUrl: image,
+			token: id
+		}).then(function() {
+			console.log("user saved")
+		}).catch(function(error) {
+			console.log("Got an error: ", error);
+		})
+	}
+	
 }
 
 getRealTimeUpdates = function(map) {
