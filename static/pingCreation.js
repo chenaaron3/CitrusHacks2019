@@ -1,8 +1,8 @@
 
 
-function previewFile(){
-   var preview = document.getElementById('imagePreview');
-   var file = document.getElementById('imageUpload').files[0];
+function previewFile(previewID, fileID){
+   var preview = document.getElementById(previewID);
+   var file = document.getElementById(fileID).files[0];
    var reader  = new FileReader();
 
    reader.onloadend = function () {

@@ -92,9 +92,9 @@ function removeMarker(marker) {
 		})
 	})
 	
-	marker.setMap(null);
 	for (var i = 0; i < markersArray.length; i++) {
 		if (markersArray[i].getPosition().equals(marker.getPosition())) {
+			markersArray[i].setMap(null);
 			markersArray.splice(i,1);
       		break;
    		}
@@ -112,14 +112,45 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 	});
 	var grReference = storage.refFromURL(imageUrl);
 	var infowindow = new google.maps.InfoWindow();
+
 	var downloadUrl = grReference.getDownloadURL().then(function(url){
-		var con = '<div style="font-family:TeenageAngst"><h1><strong>' + date + ' - Level ' + severity + '</strong></h1><br><h3>' + description + '</h3><img src=' + url + ` height="50" alt="" id="imagePreview" align="right" onclick="openPreview(this.src)"></div>`;
+		var con = `<div class="container" style="font-family:TeenageAngst">
+						<div class="col">
+							<div class="row-2">
+								<center><h1><strong>` + date + ` - Level ` + severity + `</strong></h1></center>` +
+							`</div>
+							<div class="row-sm container">
+								<div class="row">
+									<div class="col-sm">
+										<h3>` + description + `</h3>
+									</div>
+									<div class="col-sm">
+										<img src=` + url + ` height="100" alt="" id="imagePreview" align="right" onclick="openPreview(this.src)">
+									</div>
+								</div>
+							</div>
+							<div class="row-sm container">
+								<div class="row">
+									<div class="col-sm">
+										<center>
+											<button class="clean" onclick="openCleanMenu(` + date + `,` + severity + `)"></button>										
+										</center>
+									</div>
+									<div class="col-sm">
+										<center>
+											<button class="delete" onclick="deleteMarker(` + marker.getPosition().lat() + `,` +  marker.getPosition().lng() + `)">
+											</button>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>`;
 		console.log(con);
 		infowindow.setContent(con);
 	});
 
 	marker.addListener('click', function() {
-
 		if (isInfoWindowOpen(infowindow)){
 		    infowindow.close();
 		} else {
@@ -127,10 +158,10 @@ function createMarker(latlng, date, severity, imageUrl, description) {
 		}
 
 	});
-	marker.addListener('rightclick', function() {
-		removeMarker(marker);
+	// marker.addListener('rightclick', function() {
+	// 	removeMarker(marker);
 
-	});
+	// });
 
 	markersArray.push(marker);
 }
@@ -140,6 +171,18 @@ function openPreview(src)
 	console.log(src);
 	document.getElementById("previewModalImg").src = src;
 	$("#previewModal").modal();
+}
+
+function openCleanMenu(date, severity)
+{
+	console.log("opening clean menu with date: " + date + " severity: " + severity);
+	$("#cleanModal").modal();
+}
+
+function deleteMarker(lat, lng)
+{
+	console.log("deleting marker: " + lat + " " + lng);
+	removeMarker(new google.maps.Marker({position:{lat:lat, lng:lng}}));
 }
 
 function isInfoWindowOpen(infoWindow){

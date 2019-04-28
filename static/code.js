@@ -40,7 +40,6 @@ function initMap() {
         map.panTo(e.latLng);
       });
 
-      
       getRealTimeUpdates(map);
 
     }, function() {
